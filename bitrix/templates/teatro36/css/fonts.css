@@ -1,0 +1,42 @@
+@font-face {
+  font-family: 'NotoSerif-Regular';
+  src: url('../fonts/NotoSerif-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'NotoSerif-Italic';
+  src: url('../fonts/NotoSerif-Italic.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'NotoSerif-BoldItalic';
+  src: url('../fonts/NotoSerif-BoldItalic.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'NotoSerif-Bold';
+  src: url('../fonts/NotoSerif-Bold.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Philosopher";
+  src: url('../fonts/philosopher_bold.ttf') format('truetype');
+  font-style: normal;
+  font-weight: normal;
+}
+
+@font-face {
+  font-family: VivaldiD CL;
+  src: url('../fonts/vivaldid-cl.eot');
+  src: url('../fonts/vivaldid-cl.woff') format('woff'), url('../fonts/vivaldid-cl.ttf') format('truetype'), url('../fonts/vivaldid-cl.svg') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}

@@ -1,0 +1,30 @@
+
+
+#body_frame2, #centrer, #centrer2, .bg_img, .bg_img2, .load_frame, #map_place, .white, .choose_icons_frame, #next_btn, #pano_place, #pano_screen, #tour_overlay {
+	position:absolute;
+	height: 100%;
+	width: 100%;
+	top: 0;
+	left: 0;
+}
+#centrer2 .load_frame {
+	top: 20px;
+	left: 20px;
+	right: 20px;
+	bottom: 80px;
+	width: auto;
+	height: auto;
+}
+#body_frame2 {
+	overflow: hidden;
+}
+#body_frame {
+	position:absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	overflow: hidden;
+}
+
+

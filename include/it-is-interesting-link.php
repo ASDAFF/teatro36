@@ -1,0 +1,1 @@
+<div class="articles"><a href="/it-is-interesting/">Это интересно</a></div>

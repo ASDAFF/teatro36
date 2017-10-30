@@ -2,49 +2,58 @@
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
 $APPLICATION->SetTitle("Контактная информация");
 ?>
-<p>Обратитесь к нашим специалистам и получите профессиональную консультацию по услугам нашего банка.</p>
 
-<p>Вы можете обратиться к нам по телефону, по электронной почте или договориться о встрече в нашем офисе. Будем рады помочь вам и ответить на все ваши вопросы. </p>
+	<div class="container">
 
-<h2>Телефоны</h2>
+		<a href="/" class="home_l"><div class="logo_in"></div></a>
 
-<ul>
-  <li>Телефон/факс: 
-    <ul>
-      <li><b>(495) 212-85-06</b> </li>
-    </ul>
-  </li>
+		<div class="int_top">
+			<div class="int_left"></div>
+			<div class="int_right"></div>
+			<div class="clr"></div>
+		</div>
 
-  <li>Телефоны: 
-    <ul>
-      <li><b>(495) 212-85-07</b> </li>
-    
-      <li><b>(495) 212-85-08</b> </li>
-    </ul>
-  </li>
-</ul>
+		<div class="map">
+			<div class="item-page scrollbar style-3">
 
-<h2>Наш офис в Москве</h2>
+				<div class="c_page">
+					<div class="cp_phone">
+						<div class="cp_phone_top"> </div>
+						<div class="cp_phone_middle">
+							<div class="cp_phone_middle_text"><span><a class="form_open" href="#vacancy">Требуются массажистки</a>,<br /> звонить по тел:</span><br /> 8 920 457-56-66</div>
+						</div>
+						<div class="cp_phone_bottom"> </div>
+					</div>
+					<div class="cp_adress">г.Воронеж<br /> ул.Большая Манежная 13в</div>
+					<div class="cp_form"><em></em></div>
+					<div class="clr"> </div>
+				</div>
+				<ul class="pagenav">
+					<li class="pagenav-prev">
+						<a href="/o-teatro/interer.html" rel="prev">&lt; Назад</a>
+					</li>
+					<li class="pagenav-next">
+						<a href="/kontakty/1-devushki.html" rel="next">Вперёд &gt;</a>
+					</li>
+				</ul>
 
-<p><?$APPLICATION->IncludeComponent("bitrix:map.google.view", ".default", array(
-	"KEY" => "ABQIAAAAOSNukcWVjXaGbDo6npRDcxS1yLxjXbTnpHav15fICwCqFS-qhhSby0EyD6rK_qL4vuBSKpeCz5cOjw",
-	"INIT_MAP_TYPE" => "NORMAL",
-	"MAP_DATA" => "a:3:{s:10:\"google_lat\";s:7:\"55.7383\";s:10:\"google_lon\";s:7:\"37.5946\";s:12:\"google_scale\";i:13;}",
-	"MAP_WIDTH" => "600",
-	"MAP_HEIGHT" => "500",
-	"CONTROLS" => array(
-		0 => "LARGE_MAP_CONTROL",
-		1 => "MINIMAP",
-		2 => "HTYPECONTROL",
-		3 => "SCALELINE",
-	),
-	"OPTIONS" => array(
-		0 => "ENABLE_SCROLL_ZOOM",
-		1 => "ENABLE_DBLCLICK_ZOOM",
-		2 => "ENABLE_DRAGGING",
-	),
-	"MAP_ID" => ""
-	),
-	false
-);?></p>
+			</div>
+		</div>
+
+
+		<div class="breadcrumbs">
+			<a href="/" class="pathway">Главная</a> <img src="/media/system/images/arrow.png" alt=""  /> <span>Контакты</span></div>
+
+		<?
+		$APPLICATION->IncludeFile("/include/it-is-interesting-link.php", Array(), Array(
+			"MODE"      => "html",                                           // будет редактировать в веб-редакторе
+			"NAME"      => "Редактирование включаемой области раздела",      // текст всплывающей подсказки на иконке
+			"TEMPLATE"  => ""                    // имя шаблона для нового файла
+		));
+		?>
+
+	</div><!--container-->
+
+
+
 <?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>

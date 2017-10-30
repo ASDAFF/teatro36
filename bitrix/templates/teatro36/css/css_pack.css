@@ -1,0 +1,325 @@
+article,aside,details,figcaption,figure,footer,header,hgroup,nav,section,summary {
+display:block;
+}
+
+audio,canvas,video {
+display:inline;
+zoom:1;
+}
+
+audio:not([controls]) {
+display:none;
+height:0;
+}
+
+[hidden] {
+display:none;
+}
+
+html {
+font-size:100%;
+-webkit-text-size-adjust:100%;
+-ms-text-size-adjust:100%;
+}
+
+html,button,input,select,textarea {
+font-family:sans-serif;
+}
+
+body {
+margin:0;
+}
+
+a:focus {
+outline:none;
+}
+
+a:active,a:hover {
+outline:none;
+}
+
+blockquote {
+margin:1em 40px;
+}
+
+dfn {
+  font-style:italic;
+}
+
+mark {
+  background:#ff0;
+  color:#000;
+}
+
+code,kbd,pre,samp {
+  font-family:monospace, serif;
+  font-size:1em;
+}
+
+pre {
+white-space:pre-wrap;
+word-wrap:break-word;
+}
+
+q {
+quotes:none;
+}
+
+q:before,q:after {
+content:none;
+}
+
+small {
+font-size:80%;
+}
+
+sub,sup {
+font-size:75%;
+line-height:0;
+position:relative;
+vertical-align:baseline;
+}
+
+sup {
+top:-.5em;
+}
+
+sub {
+bottom:-.25em;
+}
+
+dl,menu,ol,ul {
+margin: 0;
+}
+
+dd {
+margin:0 0 0 40px;
+}
+
+menu,ol,ul {
+padding: 0;
+}
+
+nav ul,nav ol {
+list-style:none;
+list-style-image:none;
+}
+
+img {
+border:0;
+-ms-interpolation-mode:bicubic;
+}
+
+
+
+figure {
+margin:0;
+}
+
+form {
+margin:0;
+}
+
+fieldset {
+border:1px solid #c0c0c0;
+margin:0 2px;
+padding:.35em .625em .75em;
+}
+
+legend {
+border:0;
+white-space:normal;
+margin-left:-7px;
+padding:0;
+}
+
+button,input,select,textarea {
+font-size:100%;
+vertical-align:middle;
+margin:0;
+}
+
+button,input {
+line-height:normal;
+}
+
+button,html input[type=button],/* 1 */
+input[type=reset],input[type=submit] {
+-webkit-appearance:button;
+cursor:pointer;
+overflow:visible;
+}
+
+button[disabled],input[disabled] {
+cursor:default;
+}
+
+input[type=checkbox],input[type=radio] {
+box-sizing:border-box;
+height:13px;
+width:13px;
+padding:0;
+}
+
+input[type=search] {
+-webkit-appearance:textfield;
+-moz-box-sizing:content-box;
+-webkit-box-sizing:content-box;
+box-sizing:content-box;
+}
+
+input[type=search]::-webkit-search-cancel-button,input[type=search]::-webkit-search-decoration {
+-webkit-appearance:none;
+}
+
+button::-moz-focus-inner,input::-moz-focus-inner {
+border:0;
+padding:0;
+}
+
+textarea {
+overflow:auto;
+vertical-align:top;
+}
+
+table {
+border-collapse:collapse;
+border-spacing:0;
+}
+
+
+
+.jspContainer
+{
+	position: relative;
+}
+
+.jspPane
+{
+	position: absolute;
+	/*background: url('../i/blank.gif');*/
+}
+
+.jspVerticalBar
+{
+	position: absolute;
+	top: -34px;
+	right: -59px;
+	width: 25px;
+	height: 100%;
+	padding: 34px 0 40px;
+	background: #aeaeae;
+}
+
+.jspHorizontalBar
+{
+	position: absolute;
+	bottom: -25px;
+	left: 0;
+	width: 100%;
+	height: 16px;
+	display: none !important;
+}
+
+.jspVerticalBar *,
+.jspHorizontalBar *
+{
+	margin: 0;
+	padding: 0;
+}
+
+.jspCap
+{
+	display: none;
+}
+
+.jspHorizontalBar .jspCap
+{
+	float: left;
+}
+
+.jspTrack
+{	
+	position: relative;
+}
+
+.jspDrag
+{
+	background: #ebebeb;
+	position: relative;
+	top: 0;
+	left: 0;
+	cursor: pointer;
+}
+
+.jspHorizontalBar .jspTrack,
+.jspHorizontalBar .jspDrag
+{
+	float: left;
+	height: 100%;
+}
+
+.jspArrow
+{	
+	text-indent: -20000px;
+	display: block;
+	cursor: pointer;
+}
+
+.jspArrow.jspDisabled
+{
+	cursor: default;
+}
+
+.jspVerticalBar .jspArrow
+{
+	height: 0px;
+	position: relative;
+}
+.jspVerticalBar .jspArrow:after {
+	content: '';
+	display: block;
+	position: absolute;
+	left: 0;
+	width: 25px;
+	height: 25px;
+	/*background: url('../i/sprite.png');*/
+}
+.jspHorizontalBar .jspArrow
+{
+	width: 16px;
+	float: left;
+	height: 100%;
+}
+
+.jspVerticalBar .jspArrow:focus
+{
+	outline: none;
+}
+
+.jspCorner
+{
+	background: #eeeef4;
+	float: left;
+	height: 100%;
+}
+.jspVerticalBar .jspArrowUp:after {
+	background-position: -316px -174px;
+	top: -34px;
+}
+.jspVerticalBar .jspArrowDown:after {
+	background-position: -345px -174px;
+	bottom: -40px;
+}
+.jspVerticalBar .jspArrowUp.jspDisabled:after {
+	background-position: -316px -147px;
+}
+.jspVerticalBar .jspArrowDown.jspDisabled:after {
+	background-position: -345px -147px;
+}
+
+/* Yuk! CSS Hack for IE6 3 pixel bug :( */
+* html .jspCorner
+{
+	margin: 0 -3px 0 0;
+}
