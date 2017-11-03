@@ -1,0 +1,302 @@
+2017-10-30 17:25:53 -  - exec CUpdateClientPartner::GetUpdatesList
+2017-10-30 17:25:53 -  - exec CUpdateClientPartner::__CollectRequestData
+2017-10-30 17:25:53 -  - utf=Y&lang=ru&stable=Y&CANGZIP=Y&SUPD_DBS=MYSQL&XE=N&CLIENT_SITE=teatro36&LICENSE_KEY=X&SUPD_STS=1&SUPD_URS=0&SUPD_URSA=1&TYPENC=D&CLIENT_PHPVER=5.6.19&NGINX=Y&dbv=5.5.48&instm=main%2C17.0.9%2CY%3Bb24connector%2C17.0.1%2CN%3Bbitrix.sitecorporate%2C15.5.0%2CN%3Bbitrixcloud%2C17.0.0%2CN%3Bclouds%2C17.0.0%2CN%3Bcompression%2C16.0.0%2CN%3Bfileman%2C17.5.0%2CN%3Bhighloadblock%2C17.0.2%2CN%3Biblock%2C17.0.9%2CN%3Bperfmon%2C17.0.0%2CN%3Bsearch%2C17.0.1%2CN%3Bseo%2C17.0.6%2CN%3Bsocialservices%2C17.1.4%2CN%3Btranslate%2C15.0.0%2CN&reqm=bitrix.sitecorporate&fullmoduleinfo=Y&SUPD_SRS=RU&SUPD_CMP=N
+2017-10-30 17:25:53 -  - exec CUpdateClientPartner::GetHTTPPage
+2017-10-30 17:25:54 -  - TIME GetUpdatesList(request) 0.504 sec
+2017-10-30 17:25:54 -  - exec CUpdateClientPartner::ParseServerData
+2017-10-30 17:26:24 -  - exec CUpdateClientPartner::GetUpdatesList
+2017-10-30 17:26:24 -  - exec CUpdateClientPartner::__CollectRequestData
+2017-10-30 17:26:24 -  - utf=Y&lang=ru&stable=Y&CANGZIP=Y&SUPD_DBS=MYSQL&XE=N&CLIENT_SITE=teatro36&LICENSE_KEY=X&SUPD_STS=1&SUPD_URS=0&SUPD_URSA=1&TYPENC=D&CLIENT_PHPVER=5.6.19&NGINX=Y&dbv=5.5.48&instm=main%2C17.0.9%2CY%3Bb24connector%2C17.0.1%2CN%3Bbitrix.sitecorporate%2C15.5.0%2CN%3Bbitrixcloud%2C17.0.0%2CN%3Bclouds%2C17.0.0%2CN%3Bcompression%2C16.0.0%2CN%3Bfileman%2C17.5.0%2CN%3Bhighloadblock%2C17.0.2%2CN%3Biblock%2C17.0.9%2CN%3Bperfmon%2C17.0.0%2CN%3Bsearch%2C17.0.1%2CN%3Bseo%2C17.0.6%2CN%3Bsocialservices%2C17.1.4%2CN%3Btranslate%2C15.0.0%2CN&reqm=bitrix.sitecorporate%2Cthebrainstech.copyiblock&SUPD_SRS=RU&SUPD_CMP=N
+2017-10-30 17:26:24 -  - exec CUpdateClientPartner::GetHTTPPage
+2017-10-30 17:26:24 -  - TIME GetUpdatesList(request) 0.336 sec
+2017-10-30 17:26:24 -  - exec CUpdateClientPartner::ParseServerData
+2017-10-30 17:26:37 -  - exec CUpdateClientPartner::GetUpdatesList
+2017-10-30 17:26:37 -  - exec CUpdateClientPartner::__CollectRequestData
+2017-10-30 17:26:37 -  - utf=Y&lang=ru&stable=Y&CANGZIP=Y&SUPD_DBS=MYSQL&XE=N&CLIENT_SITE=teatro36&LICENSE_KEY=X&SUPD_STS=1&SUPD_URS=0&SUPD_URSA=1&TYPENC=D&CLIENT_PHPVER=5.6.19&NGINX=Y&dbv=5.5.48&instm=main%2C17.0.9%2CY%3Bb24connector%2C17.0.1%2CN%3Bbitrix.sitecorporate%2C15.5.0%2CN%3Bbitrixcloud%2C17.0.0%2CN%3Bclouds%2C17.0.0%2CN%3Bcompression%2C16.0.0%2CN%3Bfileman%2C17.5.0%2CN%3Bhighloadblock%2C17.0.2%2CN%3Biblock%2C17.0.9%2CN%3Bperfmon%2C17.0.0%2CN%3Bsearch%2C17.0.1%2CN%3Bseo%2C17.0.6%2CN%3Bsocialservices%2C17.1.4%2CN%3Btranslate%2C15.0.0%2CN&reqm=bitrix.sitecorporate%2Cthebrainstech.copyiblock&SUPD_SRS=RU&SUPD_CMP=N
+2017-10-30 17:26:37 -  - exec CUpdateClientPartner::GetHTTPPage
+2017-10-30 17:26:38 -  - TIME GetUpdatesList(request) 0.398 sec
+2017-10-30 17:26:38 -  - exec CUpdateClientPartner::ParseServerData
+2017-10-30 17:26:42 -  - exec CUpdateClientPartner::LoadModulesUpdates
+2017-10-30 17:26:42 -  - exec CUpdateClientPartner::__CollectRequestData
+2017-10-30 17:26:42 -  - utf=Y&lang=ru&stable=Y&CANGZIP=Y&SUPD_DBS=MYSQL&XE=N&CLIENT_SITE=teatro36&LICENSE_KEY=X&SUPD_STS=1&SUPD_URS=0&SUPD_URSA=1&TYPENC=D&CLIENT_PHPVER=5.6.19&NGINX=Y&dbv=5.5.48&instm=main%2C17.0.9%2CY%3Bb24connector%2C17.0.1%2CN%3Bbitrix.sitecorporate%2C15.5.0%2CN%3Bbitrixcloud%2C17.0.0%2CN%3Bclouds%2C17.0.0%2CN%3Bcompression%2C16.0.0%2CN%3Bfileman%2C17.5.0%2CN%3Bhighloadblock%2C17.0.2%2CN%3Biblock%2C17.0.9%2CN%3Bperfmon%2C17.0.0%2CN%3Bsearch%2C17.0.1%2CN%3Bseo%2C17.0.6%2CN%3Bsocialservices%2C17.1.4%2CN%3Btranslate%2C15.0.0%2CN&reqm=thebrainstech.copyiblock&lim=Y&SUPD_SRS=RU&SUPD_CMP=N
+2017-10-30 17:26:42 -  - exec CUpdateClientPartner::GetHTTPPage
+2017-10-30 17:26:42 -  - TIME LoadModulesUpdates(request) 0.436 sec
+2017-10-30 17:26:42 -  - exec CUpdateClientPartner::ParseServerData
+2017-10-30 17:26:42 - S - STEP
+2017-10-30 17:26:42 - LMU01 - LoadModulesUpdates-Step
+2017-10-30 17:26:43 -  - exec CUpdateClientPartner::LoadModulesUpdates
+2017-10-30 17:26:43 -  - exec CUpdateClientPartner::ParseServerData
+2017-10-30 17:26:43 -  - loadFile
+2017-10-30 17:26:43 - U - RETURN
+2017-10-30 17:26:43 -  - exec CUpdateClientPartner::UnGzipArchive
+2017-10-30 17:26:43 -  - TIME UnGzipArchive 0.082 sec
+2017-10-30 17:26:43 -  - TIME UpdateStepModules 0.025 sec
+2017-10-30 17:26:43 - UPD_SUCCESS - Updated: thebrainstech.copyiblock
+2017-10-30 17:26:43 -  - exec CUpdateClientPartner::LoadModulesUpdates
+2017-10-30 17:26:43 -  - exec CUpdateClientPartner::__CollectRequestData
+2017-10-30 17:26:43 -  - utf=Y&lang=ru&stable=Y&CANGZIP=Y&SUPD_DBS=MYSQL&XE=N&CLIENT_SITE=teatro36&LICENSE_KEY=X&SUPD_STS=1&SUPD_URS=0&SUPD_URSA=1&TYPENC=D&CLIENT_PHPVER=5.6.19&NGINX=Y&dbv=5.5.48&instm=main%2C17.0.9%2CY%3Bb24connector%2C17.0.1%2CN%3Bbitrix.sitecorporate%2C15.5.0%2CN%3Bbitrixcloud%2C17.0.0%2CN%3Bclouds%2C17.0.0%2CN%3Bcompression%2C16.0.0%2CN%3Bfileman%2C17.5.0%2CN%3Bhighloadblock%2C17.0.2%2CN%3Biblock%2C17.0.9%2CN%3Bperfmon%2C17.0.0%2CN%3Bsearch%2C17.0.1%2CN%3Bseo%2C17.0.6%2CN%3Bsocialservices%2C17.1.4%2CN%3Bthebrainstech.copyiblock%2C1.0.0%2CN%3Btranslate%2C15.0.0%2CN&reqm=thebrainstech.copyiblock&lim=Y&SUPD_SRS=RU&SUPD_CMP=N
+2017-10-30 17:26:43 -  - exec CUpdateClientPartner::GetHTTPPage
+2017-10-30 17:26:44 -  - TIME LoadModulesUpdates(request) 0.466 sec
+2017-10-30 17:26:44 -  - exec CUpdateClientPartner::ParseServerData
+2017-10-30 17:26:44 - S - STEP
+2017-10-30 17:26:44 - LMU01 - LoadModulesUpdates-Step
+2017-10-30 17:26:44 -  - exec CUpdateClientPartner::LoadModulesUpdates
+2017-10-30 17:26:44 -  - exec CUpdateClientPartner::ParseServerData
+2017-10-30 17:26:44 -  - loadFile
+2017-10-30 17:26:44 - U - RETURN
+2017-10-30 17:26:44 -  - exec CUpdateClientPartner::UnGzipArchive
+2017-10-30 17:26:44 -  - TIME UnGzipArchive 0.019 sec
+2017-10-30 17:26:44 -  - TIME UpdateStepModules 0.007 sec
+2017-10-30 17:26:44 - UPD_SUCCESS - Updated: thebrainstech.copyiblock (1.0.1)<br>РћР±РЅРѕРІР»РµРЅРёРµ С„Р°Р№Р»Р° \\install\\step.php РћР±РЅРѕРІР»РµРЅРёРµ С„Р°Р№Р»Р° \\lang\\ru\\install\\index.php Р”РѕР±Р°РІР»РµРЅРёРµ СЃРѕРѕР±С‰РµРЅРёСЏ РїСЂРёРІРµС‚Р°! :) 
+2017-10-30 17:26:44 -  - exec CUpdateClientPartner::LoadModulesUpdates
+2017-10-30 17:26:44 -  - exec CUpdateClientPartner::__CollectRequestData
+2017-10-30 17:26:44 -  - utf=Y&lang=ru&stable=Y&CANGZIP=Y&SUPD_DBS=MYSQL&XE=N&CLIENT_SITE=teatro36&LICENSE_KEY=X&SUPD_STS=1&SUPD_URS=0&SUPD_URSA=1&TYPENC=D&CLIENT_PHPVER=5.6.19&NGINX=Y&dbv=5.5.48&instm=main%2C17.0.9%2CY%3Bb24connector%2C17.0.1%2CN%3Bbitrix.sitecorporate%2C15.5.0%2CN%3Bbitrixcloud%2C17.0.0%2CN%3Bclouds%2C17.0.0%2CN%3Bcompression%2C16.0.0%2CN%3Bfileman%2C17.5.0%2CN%3Bhighloadblock%2C17.0.2%2CN%3Biblock%2C17.0.9%2CN%3Bperfmon%2C17.0.0%2CN%3Bsearch%2C17.0.1%2CN%3Bseo%2C17.0.6%2CN%3Bsocialservices%2C17.1.4%2CN%3Bthebrainstech.copyiblock%2C1.0.1%2CN%3Btranslate%2C15.0.0%2CN&reqm=thebrainstech.copyiblock&lim=Y&SUPD_SRS=RU&SUPD_CMP=N
+2017-10-30 17:26:44 -  - exec CUpdateClientPartner::GetHTTPPage
+2017-10-30 17:26:44 -  - TIME LoadModulesUpdates(request) 0.276 sec
+2017-10-30 17:26:44 -  - exec CUpdateClientPartner::ParseServerData
+2017-10-30 17:26:44 - S - STEP
+2017-10-30 17:26:44 - LMU01 - LoadModulesUpdates-Step
+2017-10-30 17:26:44 -  - exec CUpdateClientPartner::LoadModulesUpdates
+2017-10-30 17:26:44 -  - exec CUpdateClientPartner::ParseServerData
+2017-10-30 17:26:44 -  - loadFile
+2017-10-30 17:26:45 - U - RETURN
+2017-10-30 17:26:45 -  - exec CUpdateClientPartner::UnGzipArchive
+2017-10-30 17:26:45 -  - TIME UnGzipArchive 0.028 sec
+2017-10-30 17:26:45 -  - TIME UpdateStepModules 0.019 sec
+2017-10-30 17:26:45 - UPD_SUCCESS - Updated: thebrainstech.copyiblock (1.1.0)<br>Добовление копирования элементов и копирование разделов
+2017-10-30 17:26:45 -  - exec CUpdateClientPartner::LoadModulesUpdates
+2017-10-30 17:26:45 -  - exec CUpdateClientPartner::__CollectRequestData
+2017-10-30 17:26:45 -  - utf=Y&lang=ru&stable=Y&CANGZIP=Y&SUPD_DBS=MYSQL&XE=N&CLIENT_SITE=teatro36&LICENSE_KEY=X&SUPD_STS=1&SUPD_URS=0&SUPD_URSA=1&TYPENC=D&CLIENT_PHPVER=5.6.19&NGINX=Y&dbv=5.5.48&instm=main%2C17.0.9%2CY%3Bb24connector%2C17.0.1%2CN%3Bbitrix.sitecorporate%2C15.5.0%2CN%3Bbitrixcloud%2C17.0.0%2CN%3Bclouds%2C17.0.0%2CN%3Bcompression%2C16.0.0%2CN%3Bfileman%2C17.5.0%2CN%3Bhighloadblock%2C17.0.2%2CN%3Biblock%2C17.0.9%2CN%3Bperfmon%2C17.0.0%2CN%3Bsearch%2C17.0.1%2CN%3Bseo%2C17.0.6%2CN%3Bsocialservices%2C17.1.4%2CN%3Bthebrainstech.copyiblock%2C1.1.0%2CN%3Btranslate%2C15.0.0%2CN&reqm=thebrainstech.copyiblock&lim=Y&SUPD_SRS=RU&SUPD_CMP=N
+2017-10-30 17:26:45 -  - exec CUpdateClientPartner::GetHTTPPage
+2017-10-30 17:26:45 -  - TIME LoadModulesUpdates(request) 0.286 sec
+2017-10-30 17:26:45 -  - exec CUpdateClientPartner::ParseServerData
+2017-10-30 17:26:45 - STEP - Finish - NOUPDATES
+2017-10-30 17:26:45 - STEP - Finish - NOUPDATES
+2017-10-30 17:26:46 -  - exec CUpdateClientPartner::GetUpdatesList
+2017-10-30 17:26:46 -  - exec CUpdateClientPartner::__CollectRequestData
+2017-10-30 17:26:46 -  - utf=Y&lang=ru&stable=Y&CANGZIP=Y&SUPD_DBS=MYSQL&XE=N&CLIENT_SITE=teatro36&LICENSE_KEY=X&SUPD_STS=1&SUPD_URS=0&SUPD_URSA=1&TYPENC=D&CLIENT_PHPVER=5.6.19&NGINX=Y&dbv=5.5.48&instm=main%2C17.0.9%2CY%3Bb24connector%2C17.0.1%2CN%3Bbitrix.sitecorporate%2C15.5.0%2CN%3Bbitrixcloud%2C17.0.0%2CN%3Bclouds%2C17.0.0%2CN%3Bcompression%2C16.0.0%2CN%3Bfileman%2C17.5.0%2CN%3Bhighloadblock%2C17.0.2%2CN%3Biblock%2C17.0.9%2CN%3Bperfmon%2C17.0.0%2CN%3Bsearch%2C17.0.1%2CN%3Bseo%2C17.0.6%2CN%3Bsocialservices%2C17.1.4%2CN%3Bthebrainstech.copyiblock%2C1.1.0%2CN%3Btranslate%2C15.0.0%2CN&reqm=bitrix.sitecorporate%2Cthebrainstech.copyiblock&fullmoduleinfo=Y&SUPD_SRS=RU&SUPD_CMP=N
+2017-10-30 17:26:46 -  - exec CUpdateClientPartner::GetHTTPPage
+2017-10-30 17:26:46 -  - TIME GetUpdatesList(request) 0.285 sec
+2017-10-30 17:26:46 -  - exec CUpdateClientPartner::ParseServerData
+2017-10-30 17:26:49 -  - exec CUpdateClientPartner::GetUpdatesList
+2017-10-30 17:26:49 -  - exec CUpdateClientPartner::__CollectRequestData
+2017-10-30 17:26:49 -  - utf=Y&lang=ru&stable=Y&CANGZIP=Y&SUPD_DBS=MYSQL&XE=N&CLIENT_SITE=teatro36&LICENSE_KEY=X&SUPD_STS=1&SUPD_URS=0&SUPD_URSA=1&TYPENC=D&CLIENT_PHPVER=5.6.19&NGINX=Y&dbv=5.5.48&instm=main%2C17.0.9%2CY%3Bb24connector%2C17.0.1%2CN%3Bbitrix.sitecorporate%2C15.5.0%2CN%3Bbitrixcloud%2C17.0.0%2CN%3Bclouds%2C17.0.0%2CN%3Bcompression%2C16.0.0%2CN%3Bfileman%2C17.5.0%2CN%3Bhighloadblock%2C17.0.2%2CN%3Biblock%2C17.0.9%2CN%3Bperfmon%2C17.0.0%2CN%3Bsearch%2C17.0.1%2CN%3Bseo%2C17.0.6%2CN%3Bsocialservices%2C17.1.4%2CN%3Bthebrainstech.copyiblock%2C1.1.0%2CN%3Btranslate%2C15.0.0%2CN&reqm=bitrix.sitecorporate%2Cthebrainstech.copyiblock&fullmoduleinfo=Y&SUPD_SRS=RU&SUPD_CMP=N
+2017-10-30 17:26:49 -  - exec CUpdateClientPartner::GetHTTPPage
+2017-10-30 17:26:49 -  - TIME GetUpdatesList(request) 0.66 sec
+2017-10-30 17:26:49 -  - exec CUpdateClientPartner::ParseServerData
+2017-10-31 17:36:27 -  - exec CUpdateClientPartner::GetUpdatesList
+2017-10-31 17:36:27 -  - exec CUpdateClientPartner::__CollectRequestData
+2017-10-31 17:36:27 -  - utf=Y&lang=ru&stable=Y&CANGZIP=Y&SUPD_DBS=MYSQL&XE=N&CLIENT_SITE=teatro36&LICENSE_KEY=X&SUPD_STS=1&SUPD_URS=0&SUPD_URSA=1&TYPENC=D&CLIENT_PHPVER=5.6.19&NGINX=Y&dbv=5.5.48&instm=main%2C17.0.9%2CY%3Bb24connector%2C17.0.1%2CN%3Bbitrix.sitecorporate%2C15.5.0%2CN%3Bbitrixcloud%2C17.0.0%2CN%3Bclouds%2C17.0.0%2CN%3Bcompression%2C16.0.0%2CN%3Bfileman%2C17.5.0%2CN%3Bhighloadblock%2C17.0.2%2CN%3Biblock%2C17.0.9%2CN%3Bperfmon%2C17.0.0%2CN%3Bsearch%2C17.0.1%2CN%3Bseo%2C17.0.6%2CN%3Bsocialservices%2C17.1.4%2CN%3Bthebrainstech.copyiblock%2C1.1.0%2CN%3Btranslate%2C15.0.0%2CN&reqm=bitrix.sitecorporate%2Cthebrainstech.copyiblock%2Casd.tplvars&SUPD_SRS=RU&SUPD_CMP=N
+2017-10-31 17:36:27 -  - exec CUpdateClientPartner::GetHTTPPage
+2017-10-31 17:36:28 -  - TIME GetUpdatesList(request) 0.526 sec
+2017-10-31 17:36:28 -  - exec CUpdateClientPartner::ParseServerData
+2017-10-31 17:36:32 -  - exec CUpdateClientPartner::LoadModulesUpdates
+2017-10-31 17:36:32 -  - exec CUpdateClientPartner::__CollectRequestData
+2017-10-31 17:36:32 -  - utf=Y&lang=ru&stable=Y&CANGZIP=Y&SUPD_DBS=MYSQL&XE=N&CLIENT_SITE=teatro36&LICENSE_KEY=X&SUPD_STS=1&SUPD_URS=0&SUPD_URSA=1&TYPENC=D&CLIENT_PHPVER=5.6.19&NGINX=Y&dbv=5.5.48&instm=main%2C17.0.9%2CY%3Bb24connector%2C17.0.1%2CN%3Bbitrix.sitecorporate%2C15.5.0%2CN%3Bbitrixcloud%2C17.0.0%2CN%3Bclouds%2C17.0.0%2CN%3Bcompression%2C16.0.0%2CN%3Bfileman%2C17.5.0%2CN%3Bhighloadblock%2C17.0.2%2CN%3Biblock%2C17.0.9%2CN%3Bperfmon%2C17.0.0%2CN%3Bsearch%2C17.0.1%2CN%3Bseo%2C17.0.6%2CN%3Bsocialservices%2C17.1.4%2CN%3Bthebrainstech.copyiblock%2C1.1.0%2CN%3Btranslate%2C15.0.0%2CN&reqm=asd.tplvars&lim=Y&SUPD_SRS=RU&SUPD_CMP=N
+2017-10-31 17:36:32 -  - exec CUpdateClientPartner::GetHTTPPage
+2017-10-31 17:36:33 -  - TIME LoadModulesUpdates(request) 0.366 sec
+2017-10-31 17:36:33 -  - exec CUpdateClientPartner::ParseServerData
+2017-10-31 17:36:33 - S - STEP
+2017-10-31 17:36:33 - LMU01 - LoadModulesUpdates-Step
+2017-10-31 17:36:33 -  - exec CUpdateClientPartner::LoadModulesUpdates
+2017-10-31 17:36:33 -  - exec CUpdateClientPartner::ParseServerData
+2017-10-31 17:36:33 -  - loadFile
+2017-10-31 17:36:33 - U - RETURN
+2017-10-31 17:36:33 -  - exec CUpdateClientPartner::UnGzipArchive
+2017-10-31 17:36:33 -  - TIME UnGzipArchive 0.119 sec
+2017-10-31 17:36:33 -  - TIME UpdateStepModules 0.029 sec
+2017-10-31 17:36:33 - UPD_SUCCESS - Updated: asd.tplvars
+2017-10-31 17:36:33 -  - exec CUpdateClientPartner::LoadModulesUpdates
+2017-10-31 17:36:33 -  - exec CUpdateClientPartner::__CollectRequestData
+2017-10-31 17:36:33 -  - utf=Y&lang=ru&stable=Y&CANGZIP=Y&SUPD_DBS=MYSQL&XE=N&CLIENT_SITE=teatro36&LICENSE_KEY=X&SUPD_STS=1&SUPD_URS=0&SUPD_URSA=1&TYPENC=D&CLIENT_PHPVER=5.6.19&NGINX=Y&dbv=5.5.48&instm=main%2C17.0.9%2CY%3Basd.tplvars%2C1.0.0%2CN%3Bb24connector%2C17.0.1%2CN%3Bbitrix.sitecorporate%2C15.5.0%2CN%3Bbitrixcloud%2C17.0.0%2CN%3Bclouds%2C17.0.0%2CN%3Bcompression%2C16.0.0%2CN%3Bfileman%2C17.5.0%2CN%3Bhighloadblock%2C17.0.2%2CN%3Biblock%2C17.0.9%2CN%3Bperfmon%2C17.0.0%2CN%3Bsearch%2C17.0.1%2CN%3Bseo%2C17.0.6%2CN%3Bsocialservices%2C17.1.4%2CN%3Bthebrainstech.copyiblock%2C1.1.0%2CN%3Btranslate%2C15.0.0%2CN&reqm=asd.tplvars&lim=Y&SUPD_SRS=RU&SUPD_CMP=N
+2017-10-31 17:36:33 -  - exec CUpdateClientPartner::GetHTTPPage
+2017-10-31 17:36:33 -  - TIME LoadModulesUpdates(request) 0.348 sec
+2017-10-31 17:36:33 -  - exec CUpdateClientPartner::ParseServerData
+2017-10-31 17:36:34 - S - STEP
+2017-10-31 17:36:34 - LMU01 - LoadModulesUpdates-Step
+2017-10-31 17:36:34 -  - exec CUpdateClientPartner::LoadModulesUpdates
+2017-10-31 17:36:34 -  - exec CUpdateClientPartner::ParseServerData
+2017-10-31 17:36:34 -  - loadFile
+2017-10-31 17:36:34 - U - RETURN
+2017-10-31 17:36:34 -  - exec CUpdateClientPartner::UnGzipArchive
+2017-10-31 17:36:34 -  - TIME UnGzipArchive 0.015 sec
+2017-10-31 17:36:34 - CSURUS1 - Run updater '/bitrix/updates/update_m1509460594/asd.tplvars/updater1.0.2.php'
+2017-10-31 17:36:34 -  - TIME UpdateStepModules 0.008 sec
+2017-10-31 17:36:34 - UPD_SUCCESS - Updated: asd.tplvars (1.0.2)<br>- Изменен порядок проверки показа кнопки на панели.
+2017-10-31 17:36:34 -  - exec CUpdateClientPartner::LoadModulesUpdates
+2017-10-31 17:36:34 -  - exec CUpdateClientPartner::__CollectRequestData
+2017-10-31 17:36:34 -  - utf=Y&lang=ru&stable=Y&CANGZIP=Y&SUPD_DBS=MYSQL&XE=N&CLIENT_SITE=teatro36&LICENSE_KEY=X&SUPD_STS=1&SUPD_URS=0&SUPD_URSA=1&TYPENC=D&CLIENT_PHPVER=5.6.19&NGINX=Y&dbv=5.5.48&instm=main%2C17.0.9%2CY%3Basd.tplvars%2C1.0.2%2CN%3Bb24connector%2C17.0.1%2CN%3Bbitrix.sitecorporate%2C15.5.0%2CN%3Bbitrixcloud%2C17.0.0%2CN%3Bclouds%2C17.0.0%2CN%3Bcompression%2C16.0.0%2CN%3Bfileman%2C17.5.0%2CN%3Bhighloadblock%2C17.0.2%2CN%3Biblock%2C17.0.9%2CN%3Bperfmon%2C17.0.0%2CN%3Bsearch%2C17.0.1%2CN%3Bseo%2C17.0.6%2CN%3Bsocialservices%2C17.1.4%2CN%3Bthebrainstech.copyiblock%2C1.1.0%2CN%3Btranslate%2C15.0.0%2CN&reqm=asd.tplvars&lim=Y&SUPD_SRS=RU&SUPD_CMP=N
+2017-10-31 17:36:34 -  - exec CUpdateClientPartner::GetHTTPPage
+2017-10-31 17:36:34 -  - TIME LoadModulesUpdates(request) 0.334 sec
+2017-10-31 17:36:34 -  - exec CUpdateClientPartner::ParseServerData
+2017-10-31 17:36:34 - S - STEP
+2017-10-31 17:36:34 - LMU01 - LoadModulesUpdates-Step
+2017-10-31 17:36:34 -  - exec CUpdateClientPartner::LoadModulesUpdates
+2017-10-31 17:36:34 -  - exec CUpdateClientPartner::ParseServerData
+2017-10-31 17:36:34 -  - loadFile
+2017-10-31 17:36:35 - U - RETURN
+2017-10-31 17:36:35 -  - exec CUpdateClientPartner::UnGzipArchive
+2017-10-31 17:36:35 -  - TIME UnGzipArchive 0.016 sec
+2017-10-31 17:36:35 - CSURUS1 - Run updater '/bitrix/updates/update_m1509460595/asd.tplvars/updater1.0.3.php'
+2017-10-31 17:36:35 -  - TIME UpdateStepModules 0.008 sec
+2017-10-31 17:36:35 - UPD_SUCCESS - Updated: asd.tplvars (1.0.3)<br>- Дополнил функцией tplinvis: http://dev.1c-bitrix.ru/community/webdev/user/11948/blog/7543/
+2017-10-31 17:36:35 -  - exec CUpdateClientPartner::LoadModulesUpdates
+2017-10-31 17:36:35 -  - exec CUpdateClientPartner::__CollectRequestData
+2017-10-31 17:36:35 -  - utf=Y&lang=ru&stable=Y&CANGZIP=Y&SUPD_DBS=MYSQL&XE=N&CLIENT_SITE=teatro36&LICENSE_KEY=X&SUPD_STS=1&SUPD_URS=0&SUPD_URSA=1&TYPENC=D&CLIENT_PHPVER=5.6.19&NGINX=Y&dbv=5.5.48&instm=main%2C17.0.9%2CY%3Basd.tplvars%2C1.0.3%2CN%3Bb24connector%2C17.0.1%2CN%3Bbitrix.sitecorporate%2C15.5.0%2CN%3Bbitrixcloud%2C17.0.0%2CN%3Bclouds%2C17.0.0%2CN%3Bcompression%2C16.0.0%2CN%3Bfileman%2C17.5.0%2CN%3Bhighloadblock%2C17.0.2%2CN%3Biblock%2C17.0.9%2CN%3Bperfmon%2C17.0.0%2CN%3Bsearch%2C17.0.1%2CN%3Bseo%2C17.0.6%2CN%3Bsocialservices%2C17.1.4%2CN%3Bthebrainstech.copyiblock%2C1.1.0%2CN%3Btranslate%2C15.0.0%2CN&reqm=asd.tplvars&lim=Y&SUPD_SRS=RU&SUPD_CMP=N
+2017-10-31 17:36:35 -  - exec CUpdateClientPartner::GetHTTPPage
+2017-10-31 17:36:35 -  - TIME LoadModulesUpdates(request) 0.521 sec
+2017-10-31 17:36:35 -  - exec CUpdateClientPartner::ParseServerData
+2017-10-31 17:36:35 - S - STEP
+2017-10-31 17:36:35 - LMU01 - LoadModulesUpdates-Step
+2017-10-31 17:36:35 -  - exec CUpdateClientPartner::LoadModulesUpdates
+2017-10-31 17:36:35 -  - exec CUpdateClientPartner::ParseServerData
+2017-10-31 17:36:35 -  - loadFile
+2017-10-31 17:36:36 - U - RETURN
+2017-10-31 17:36:36 -  - exec CUpdateClientPartner::UnGzipArchive
+2017-10-31 17:36:36 -  - TIME UnGzipArchive 0.041 sec
+2017-10-31 17:36:36 - CSURUS1 - Run updater '/bitrix/updates/update_m1509460596/asd.tplvars/updater1.0.4.php'
+2017-10-31 17:36:36 -  - TIME UpdateStepModules 0.011 sec
+2017-10-31 17:36:36 - UPD_SUCCESS - Updated: asd.tplvars (1.0.4)<br>- Мелкие ошибки.
+2017-10-31 17:36:36 -  - exec CUpdateClientPartner::LoadModulesUpdates
+2017-10-31 17:36:36 -  - exec CUpdateClientPartner::__CollectRequestData
+2017-10-31 17:36:36 -  - utf=Y&lang=ru&stable=Y&CANGZIP=Y&SUPD_DBS=MYSQL&XE=N&CLIENT_SITE=teatro36&LICENSE_KEY=X&SUPD_STS=1&SUPD_URS=0&SUPD_URSA=1&TYPENC=D&CLIENT_PHPVER=5.6.19&NGINX=Y&dbv=5.5.48&instm=main%2C17.0.9%2CY%3Basd.tplvars%2C1.0.4%2CN%3Bb24connector%2C17.0.1%2CN%3Bbitrix.sitecorporate%2C15.5.0%2CN%3Bbitrixcloud%2C17.0.0%2CN%3Bclouds%2C17.0.0%2CN%3Bcompression%2C16.0.0%2CN%3Bfileman%2C17.5.0%2CN%3Bhighloadblock%2C17.0.2%2CN%3Biblock%2C17.0.9%2CN%3Bperfmon%2C17.0.0%2CN%3Bsearch%2C17.0.1%2CN%3Bseo%2C17.0.6%2CN%3Bsocialservices%2C17.1.4%2CN%3Bthebrainstech.copyiblock%2C1.1.0%2CN%3Btranslate%2C15.0.0%2CN&reqm=asd.tplvars&lim=Y&SUPD_SRS=RU&SUPD_CMP=N
+2017-10-31 17:36:36 -  - exec CUpdateClientPartner::GetHTTPPage
+2017-10-31 17:36:36 -  - TIME LoadModulesUpdates(request) 0.457 sec
+2017-10-31 17:36:36 -  - exec CUpdateClientPartner::ParseServerData
+2017-10-31 17:36:36 - S - STEP
+2017-10-31 17:36:36 - LMU01 - LoadModulesUpdates-Step
+2017-10-31 17:36:36 -  - exec CUpdateClientPartner::LoadModulesUpdates
+2017-10-31 17:36:36 -  - exec CUpdateClientPartner::ParseServerData
+2017-10-31 17:36:36 -  - loadFile
+2017-10-31 17:36:37 - U - RETURN
+2017-10-31 17:36:37 -  - exec CUpdateClientPartner::UnGzipArchive
+2017-10-31 17:36:37 -  - TIME UnGzipArchive 0.039 sec
+2017-10-31 17:36:37 - CSURUS1 - Run updater '/bitrix/updates/update_m1509460597/asd.tplvars/updater1.0.5.php'
+2017-10-31 17:36:37 -  - TIME UpdateStepModules 0.011 sec
+2017-10-31 17:36:37 - UPD_SUCCESS - Updated: asd.tplvars (1.0.5)<br>- Исправление js-ошибки.
+2017-10-31 17:36:37 -  - exec CUpdateClientPartner::LoadModulesUpdates
+2017-10-31 17:36:37 -  - exec CUpdateClientPartner::__CollectRequestData
+2017-10-31 17:36:37 -  - utf=Y&lang=ru&stable=Y&CANGZIP=Y&SUPD_DBS=MYSQL&XE=N&CLIENT_SITE=teatro36&LICENSE_KEY=X&SUPD_STS=1&SUPD_URS=0&SUPD_URSA=1&TYPENC=D&CLIENT_PHPVER=5.6.19&NGINX=Y&dbv=5.5.48&instm=main%2C17.0.9%2CY%3Basd.tplvars%2C1.0.5%2CN%3Bb24connector%2C17.0.1%2CN%3Bbitrix.sitecorporate%2C15.5.0%2CN%3Bbitrixcloud%2C17.0.0%2CN%3Bclouds%2C17.0.0%2CN%3Bcompression%2C16.0.0%2CN%3Bfileman%2C17.5.0%2CN%3Bhighloadblock%2C17.0.2%2CN%3Biblock%2C17.0.9%2CN%3Bperfmon%2C17.0.0%2CN%3Bsearch%2C17.0.1%2CN%3Bseo%2C17.0.6%2CN%3Bsocialservices%2C17.1.4%2CN%3Bthebrainstech.copyiblock%2C1.1.0%2CN%3Btranslate%2C15.0.0%2CN&reqm=asd.tplvars&lim=Y&SUPD_SRS=RU&SUPD_CMP=N
+2017-10-31 17:36:37 -  - exec CUpdateClientPartner::GetHTTPPage
+2017-10-31 17:36:37 -  - TIME LoadModulesUpdates(request) 0.35 sec
+2017-10-31 17:36:37 -  - exec CUpdateClientPartner::ParseServerData
+2017-10-31 17:36:37 - S - STEP
+2017-10-31 17:36:37 - LMU01 - LoadModulesUpdates-Step
+2017-10-31 17:36:37 -  - exec CUpdateClientPartner::LoadModulesUpdates
+2017-10-31 17:36:37 -  - exec CUpdateClientPartner::ParseServerData
+2017-10-31 17:36:37 -  - loadFile
+2017-10-31 17:36:37 - U - RETURN
+2017-10-31 17:36:37 -  - exec CUpdateClientPartner::UnGzipArchive
+2017-10-31 17:36:37 -  - TIME UnGzipArchive 0.021 sec
+2017-10-31 17:36:37 - CSURUS1 - Run updater '/bitrix/updates/update_m1509460597/asd.tplvars/updater1.1.0.php'
+2017-10-31 17:36:37 -  - TIME UpdateStepModules 0.009 sec
+2017-10-31 17:36:37 - UPD_SUCCESS - Updated: asd.tplvars (1.1.0)<br>- Добавлена функция tplvar_set. Использование: tplvar_set($code, $value, $site), все значения обязательны. 
+2017-10-31 17:36:38 -  - exec CUpdateClientPartner::LoadModulesUpdates
+2017-10-31 17:36:38 -  - exec CUpdateClientPartner::__CollectRequestData
+2017-10-31 17:36:38 -  - utf=Y&lang=ru&stable=Y&CANGZIP=Y&SUPD_DBS=MYSQL&XE=N&CLIENT_SITE=teatro36&LICENSE_KEY=X&SUPD_STS=1&SUPD_URS=0&SUPD_URSA=1&TYPENC=D&CLIENT_PHPVER=5.6.19&NGINX=Y&dbv=5.5.48&instm=main%2C17.0.9%2CY%3Basd.tplvars%2C1.1.0%2CN%3Bb24connector%2C17.0.1%2CN%3Bbitrix.sitecorporate%2C15.5.0%2CN%3Bbitrixcloud%2C17.0.0%2CN%3Bclouds%2C17.0.0%2CN%3Bcompression%2C16.0.0%2CN%3Bfileman%2C17.5.0%2CN%3Bhighloadblock%2C17.0.2%2CN%3Biblock%2C17.0.9%2CN%3Bperfmon%2C17.0.0%2CN%3Bsearch%2C17.0.1%2CN%3Bseo%2C17.0.6%2CN%3Bsocialservices%2C17.1.4%2CN%3Bthebrainstech.copyiblock%2C1.1.0%2CN%3Btranslate%2C15.0.0%2CN&reqm=asd.tplvars&lim=Y&SUPD_SRS=RU&SUPD_CMP=N
+2017-10-31 17:36:38 -  - exec CUpdateClientPartner::GetHTTPPage
+2017-10-31 17:36:38 -  - TIME LoadModulesUpdates(request) 0.392 sec
+2017-10-31 17:36:38 -  - exec CUpdateClientPartner::ParseServerData
+2017-10-31 17:36:38 - S - STEP
+2017-10-31 17:36:38 - LMU01 - LoadModulesUpdates-Step
+2017-10-31 17:36:38 -  - exec CUpdateClientPartner::LoadModulesUpdates
+2017-10-31 17:36:38 -  - exec CUpdateClientPartner::ParseServerData
+2017-10-31 17:36:38 -  - loadFile
+2017-10-31 17:36:38 - U - RETURN
+2017-10-31 17:36:38 -  - exec CUpdateClientPartner::UnGzipArchive
+2017-10-31 17:36:38 -  - TIME UnGzipArchive 0.037 sec
+2017-10-31 17:36:38 - CSURUS1 - Run updater '/bitrix/updates/update_m1509460598/asd.tplvars/updater1.1.1.php'
+2017-10-31 17:36:38 -  - TIME UpdateStepModules 0.01 sec
+2017-10-31 17:36:38 - UPD_SUCCESS - Updated: asd.tplvars (1.1.1)<br>- Изменен порядок вызова обработчика на добавление кнопки в меню.
+2017-10-31 17:36:39 -  - exec CUpdateClientPartner::LoadModulesUpdates
+2017-10-31 17:36:39 -  - exec CUpdateClientPartner::__CollectRequestData
+2017-10-31 17:36:39 -  - utf=Y&lang=ru&stable=Y&CANGZIP=Y&SUPD_DBS=MYSQL&XE=N&CLIENT_SITE=teatro36&LICENSE_KEY=X&SUPD_STS=1&SUPD_URS=0&SUPD_URSA=1&TYPENC=D&CLIENT_PHPVER=5.6.19&NGINX=Y&dbv=5.5.48&instm=main%2C17.0.9%2CY%3Basd.tplvars%2C1.1.1%2CN%3Bb24connector%2C17.0.1%2CN%3Bbitrix.sitecorporate%2C15.5.0%2CN%3Bbitrixcloud%2C17.0.0%2CN%3Bclouds%2C17.0.0%2CN%3Bcompression%2C16.0.0%2CN%3Bfileman%2C17.5.0%2CN%3Bhighloadblock%2C17.0.2%2CN%3Biblock%2C17.0.9%2CN%3Bperfmon%2C17.0.0%2CN%3Bsearch%2C17.0.1%2CN%3Bseo%2C17.0.6%2CN%3Bsocialservices%2C17.1.4%2CN%3Bthebrainstech.copyiblock%2C1.1.0%2CN%3Btranslate%2C15.0.0%2CN&reqm=asd.tplvars&lim=Y&SUPD_SRS=RU&SUPD_CMP=N
+2017-10-31 17:36:39 -  - exec CUpdateClientPartner::GetHTTPPage
+2017-10-31 17:36:39 -  - TIME LoadModulesUpdates(request) 0.3 sec
+2017-10-31 17:36:39 -  - exec CUpdateClientPartner::ParseServerData
+2017-10-31 17:36:39 - S - STEP
+2017-10-31 17:36:39 - LMU01 - LoadModulesUpdates-Step
+2017-10-31 17:36:39 -  - exec CUpdateClientPartner::LoadModulesUpdates
+2017-10-31 17:36:39 -  - exec CUpdateClientPartner::ParseServerData
+2017-10-31 17:36:39 -  - loadFile
+2017-10-31 17:36:39 - U - RETURN
+2017-10-31 17:36:39 -  - exec CUpdateClientPartner::UnGzipArchive
+2017-10-31 17:36:39 -  - TIME UnGzipArchive 0.044 sec
+2017-10-31 17:36:39 - CSURUS1 - Run updater '/bitrix/updates/update_m1509460599/asd.tplvars/updater1.2.1.php'
+2017-10-31 17:36:39 -  - TIME UpdateStepModules 0.011 sec
+2017-10-31 17:36:39 - UPD_SUCCESS - Updated: asd.tplvars (1.2.1)<br>- Исправления под 14-ю версию Битрикс.
+2017-10-31 17:36:39 -  - exec CUpdateClientPartner::LoadModulesUpdates
+2017-10-31 17:36:39 -  - exec CUpdateClientPartner::__CollectRequestData
+2017-10-31 17:36:39 -  - utf=Y&lang=ru&stable=Y&CANGZIP=Y&SUPD_DBS=MYSQL&XE=N&CLIENT_SITE=teatro36&LICENSE_KEY=X&SUPD_STS=1&SUPD_URS=0&SUPD_URSA=1&TYPENC=D&CLIENT_PHPVER=5.6.19&NGINX=Y&dbv=5.5.48&instm=main%2C17.0.9%2CY%3Basd.tplvars%2C1.2.1%2CN%3Bb24connector%2C17.0.1%2CN%3Bbitrix.sitecorporate%2C15.5.0%2CN%3Bbitrixcloud%2C17.0.0%2CN%3Bclouds%2C17.0.0%2CN%3Bcompression%2C16.0.0%2CN%3Bfileman%2C17.5.0%2CN%3Bhighloadblock%2C17.0.2%2CN%3Biblock%2C17.0.9%2CN%3Bperfmon%2C17.0.0%2CN%3Bsearch%2C17.0.1%2CN%3Bseo%2C17.0.6%2CN%3Bsocialservices%2C17.1.4%2CN%3Bthebrainstech.copyiblock%2C1.1.0%2CN%3Btranslate%2C15.0.0%2CN&reqm=asd.tplvars&lim=Y&SUPD_SRS=RU&SUPD_CMP=N
+2017-10-31 17:36:39 -  - exec CUpdateClientPartner::GetHTTPPage
+2017-10-31 17:36:40 -  - TIME LoadModulesUpdates(request) 0.463 sec
+2017-10-31 17:36:40 -  - exec CUpdateClientPartner::ParseServerData
+2017-10-31 17:36:40 - S - STEP
+2017-10-31 17:36:40 - LMU01 - LoadModulesUpdates-Step
+2017-10-31 17:36:40 -  - exec CUpdateClientPartner::LoadModulesUpdates
+2017-10-31 17:36:40 -  - exec CUpdateClientPartner::ParseServerData
+2017-10-31 17:36:40 -  - loadFile
+2017-10-31 17:36:40 - U - RETURN
+2017-10-31 17:36:40 -  - exec CUpdateClientPartner::UnGzipArchive
+2017-10-31 17:36:40 -  - TIME UnGzipArchive 0.101 sec
+2017-10-31 17:36:40 - CSURUS1 - Run updater '/bitrix/updates/update_m1509460600/asd.tplvars/updater1.5.0.php'
+2017-10-31 17:36:40 -  - TIME UpdateStepModules 0.204 sec
+2017-10-31 17:36:40 - UPD_SUCCESS - Updated: asd.tplvars (1.5.0)<br>Поддержка описаний свойств.
+2017-10-31 17:36:41 -  - exec CUpdateClientPartner::LoadModulesUpdates
+2017-10-31 17:36:41 -  - exec CUpdateClientPartner::__CollectRequestData
+2017-10-31 17:36:41 -  - utf=Y&lang=ru&stable=Y&CANGZIP=Y&SUPD_DBS=MYSQL&XE=N&CLIENT_SITE=teatro36&LICENSE_KEY=X&SUPD_STS=1&SUPD_URS=0&SUPD_URSA=1&TYPENC=D&CLIENT_PHPVER=5.6.19&NGINX=Y&dbv=5.5.48&instm=main%2C17.0.9%2CY%3Basd.tplvars%2C1.5.0%2CN%3Bb24connector%2C17.0.1%2CN%3Bbitrix.sitecorporate%2C15.5.0%2CN%3Bbitrixcloud%2C17.0.0%2CN%3Bclouds%2C17.0.0%2CN%3Bcompression%2C16.0.0%2CN%3Bfileman%2C17.5.0%2CN%3Bhighloadblock%2C17.0.2%2CN%3Biblock%2C17.0.9%2CN%3Bperfmon%2C17.0.0%2CN%3Bsearch%2C17.0.1%2CN%3Bseo%2C17.0.6%2CN%3Bsocialservices%2C17.1.4%2CN%3Bthebrainstech.copyiblock%2C1.1.0%2CN%3Btranslate%2C15.0.0%2CN&reqm=asd.tplvars&lim=Y&SUPD_SRS=RU&SUPD_CMP=N
+2017-10-31 17:36:41 -  - exec CUpdateClientPartner::GetHTTPPage
+2017-10-31 17:36:41 -  - TIME LoadModulesUpdates(request) 0.425 sec
+2017-10-31 17:36:41 -  - exec CUpdateClientPartner::ParseServerData
+2017-10-31 17:36:41 - S - STEP
+2017-10-31 17:36:41 - LMU01 - LoadModulesUpdates-Step
+2017-10-31 17:36:41 -  - exec CUpdateClientPartner::LoadModulesUpdates
+2017-10-31 17:36:41 -  - exec CUpdateClientPartner::ParseServerData
+2017-10-31 17:36:41 -  - loadFile
+2017-10-31 17:36:41 - U - RETURN
+2017-10-31 17:36:41 -  - exec CUpdateClientPartner::UnGzipArchive
+2017-10-31 17:36:41 -  - TIME UnGzipArchive 0.014 sec
+2017-10-31 17:36:41 - CSURUS1 - Run updater '/bitrix/updates/update_m1509460601/asd.tplvars/updater1.5.1.php'
+2017-10-31 17:36:41 -  - TIME UpdateStepModules 0.008 sec
+2017-10-31 17:36:41 - UPD_SUCCESS - Updated: asd.tplvars (1.5.1)<br>Совместимость со старыми версиями.
+2017-10-31 17:36:42 -  - exec CUpdateClientPartner::LoadModulesUpdates
+2017-10-31 17:36:42 -  - exec CUpdateClientPartner::__CollectRequestData
+2017-10-31 17:36:42 -  - utf=Y&lang=ru&stable=Y&CANGZIP=Y&SUPD_DBS=MYSQL&XE=N&CLIENT_SITE=teatro36&LICENSE_KEY=X&SUPD_STS=1&SUPD_URS=0&SUPD_URSA=1&TYPENC=D&CLIENT_PHPVER=5.6.19&NGINX=Y&dbv=5.5.48&instm=main%2C17.0.9%2CY%3Basd.tplvars%2C1.5.1%2CN%3Bb24connector%2C17.0.1%2CN%3Bbitrix.sitecorporate%2C15.5.0%2CN%3Bbitrixcloud%2C17.0.0%2CN%3Bclouds%2C17.0.0%2CN%3Bcompression%2C16.0.0%2CN%3Bfileman%2C17.5.0%2CN%3Bhighloadblock%2C17.0.2%2CN%3Biblock%2C17.0.9%2CN%3Bperfmon%2C17.0.0%2CN%3Bsearch%2C17.0.1%2CN%3Bseo%2C17.0.6%2CN%3Bsocialservices%2C17.1.4%2CN%3Bthebrainstech.copyiblock%2C1.1.0%2CN%3Btranslate%2C15.0.0%2CN&reqm=asd.tplvars&lim=Y&SUPD_SRS=RU&SUPD_CMP=N
+2017-10-31 17:36:42 -  - exec CUpdateClientPartner::GetHTTPPage
+2017-10-31 17:36:42 -  - TIME LoadModulesUpdates(request) 0.345 sec
+2017-10-31 17:36:42 -  - exec CUpdateClientPartner::ParseServerData
+2017-10-31 17:36:42 - STEP - Finish - NOUPDATES
+2017-10-31 17:36:42 - STEP - Finish - NOUPDATES
+2017-10-31 17:36:54 -  - exec CUpdateClientPartner::GetUpdatesList
+2017-10-31 17:36:54 -  - exec CUpdateClientPartner::__CollectRequestData
+2017-10-31 17:36:54 -  - utf=Y&lang=ru&stable=Y&CANGZIP=Y&SUPD_DBS=MYSQL&XE=N&CLIENT_SITE=teatro36&LICENSE_KEY=X&SUPD_STS=1&SUPD_URS=0&SUPD_URSA=1&TYPENC=D&CLIENT_PHPVER=5.6.19&NGINX=Y&dbv=5.5.48&instm=main%2C17.0.9%2CY%3Basd.tplvars%2C1.5.1%2CN%3Bb24connector%2C17.0.1%2CN%3Bbitrix.sitecorporate%2C15.5.0%2CN%3Bbitrixcloud%2C17.0.0%2CN%3Bclouds%2C17.0.0%2CN%3Bcompression%2C16.0.0%2CN%3Bfileman%2C17.5.0%2CN%3Bhighloadblock%2C17.0.2%2CN%3Biblock%2C17.0.9%2CN%3Bperfmon%2C17.0.0%2CN%3Bsearch%2C17.0.1%2CN%3Bseo%2C17.0.6%2CN%3Bsocialservices%2C17.1.4%2CN%3Bthebrainstech.copyiblock%2C1.1.0%2CN%3Btranslate%2C15.0.0%2CN&reqm=asd.tplvars%2Cbitrix.sitecorporate%2Cthebrainstech.copyiblock&fullmoduleinfo=Y&SUPD_SRS=RU&SUPD_CMP=N
+2017-10-31 17:36:54 -  - exec CUpdateClientPartner::GetHTTPPage
+2017-10-31 17:36:54 -  - TIME GetUpdatesList(request) 0.397 sec
+2017-10-31 17:36:54 -  - exec CUpdateClientPartner::ParseServerData
+2017-10-31 17:36:56 -  - exec CUpdateClientPartner::GetUpdatesList
+2017-10-31 17:36:56 -  - exec CUpdateClientPartner::__CollectRequestData
+2017-10-31 17:36:56 -  - utf=Y&lang=ru&stable=Y&CANGZIP=Y&SUPD_DBS=MYSQL&XE=N&CLIENT_SITE=teatro36&LICENSE_KEY=X&SUPD_STS=1&SUPD_URS=0&SUPD_URSA=1&TYPENC=D&CLIENT_PHPVER=5.6.19&NGINX=Y&dbv=5.5.48&instm=main%2C17.0.9%2CY%3Basd.tplvars%2C1.5.1%2CN%3Bb24connector%2C17.0.1%2CN%3Bbitrix.sitecorporate%2C15.5.0%2CN%3Bbitrixcloud%2C17.0.0%2CN%3Bclouds%2C17.0.0%2CN%3Bcompression%2C16.0.0%2CN%3Bfileman%2C17.5.0%2CN%3Bhighloadblock%2C17.0.2%2CN%3Biblock%2C17.0.9%2CN%3Bperfmon%2C17.0.0%2CN%3Bsearch%2C17.0.1%2CN%3Bseo%2C17.0.6%2CN%3Bsocialservices%2C17.1.4%2CN%3Bthebrainstech.copyiblock%2C1.1.0%2CN%3Btranslate%2C15.0.0%2CN&reqm=asd.tplvars%2Cbitrix.sitecorporate%2Cthebrainstech.copyiblock&fullmoduleinfo=Y&SUPD_SRS=RU&SUPD_CMP=N
+2017-10-31 17:36:56 -  - exec CUpdateClientPartner::GetHTTPPage
+2017-10-31 17:36:57 -  - TIME GetUpdatesList(request) 0.359 sec
+2017-10-31 17:36:57 -  - exec CUpdateClientPartner::ParseServerData
+2017-11-02 14:22:01 -  - exec CUpdateClientPartner::GetUpdatesList
+2017-11-02 14:22:01 -  - exec CUpdateClientPartner::__CollectRequestData
+2017-11-02 14:22:01 -  - utf=Y&lang=ru&stable=Y&CANGZIP=Y&SUPD_DBS=MYSQL&XE=N&CLIENT_SITE=teatro36.ru&LICENSE_KEY=X&SUPD_STS=1&SUPD_URS=0&SUPD_URSA=2&TYPENC=D&CLIENT_PHPVER=5.6.32&NGINX=Y&dbv=5.5.56&instm=main%2C17.0.9%2CY%3Basd.tplvars%2C1.5.1%2CN%3Bbitrix.sitecorporate%2C15.5.0%2CN%3Bperfmon%2C17.0.0%2CN%3Bhighloadblock%2C17.0.2%2CN%3Bthebrainstech.copyiblock%2C1.1.0%2CN%3Bfileman%2C17.5.0%2CN%3Bbitrixcloud%2C17.0.0%2CN%3Bclouds%2C17.0.0%2CN%3Bsearch%2C17.0.1%2CN%3Bcompression%2C16.0.0%2CN%3Biblock%2C17.0.9%2CN%3Btranslate%2C15.0.0%2CN%3Bsocialservices%2C17.1.4%2CN%3Bb24connector%2C17.0.1%2CN%3Bseo%2C17.0.6%2CN&reqm=asd.tplvars%2Cbitrix.sitecorporate%2Cthebrainstech.copyiblock&fullmoduleinfo=Y&SUPD_SRS=RU&SUPD_CMP=N
+2017-11-02 14:22:01 -  - exec CUpdateClientPartner::GetHTTPPage
+2017-11-02 14:22:01 - ERRCONN - Error connecting 2 www.bitrixsoft.com: [] 
+2017-11-02 14:22:01 -  - TIME GetUpdatesList(request) 0.009 sec
+2017-11-02 14:22:01 - GUL02 - Ошибка соединения с сервером обновлений: [] . Нет соединения с сервером обновлений. 
+2017-11-02 14:41:48 -  - exec CUpdateClientPartner::GetUpdatesList
+2017-11-02 14:41:48 -  - exec CUpdateClientPartner::__CollectRequestData
+2017-11-02 14:41:48 -  - utf=Y&lang=ru&stable=Y&CANGZIP=Y&SUPD_DBS=MYSQL&XE=N&CLIENT_SITE=teatro36.ru&LICENSE_KEY=X&SUPD_STS=1&SUPD_URS=0&SUPD_URSA=2&TYPENC=D&CLIENT_PHPVER=5.6.32&NGINX=Y&dbv=5.5.56&instm=main%2C17.0.9%2CY%3Basd.tplvars%2C1.5.1%2CN%3Bbitrix.sitecorporate%2C15.5.0%2CN%3Bperfmon%2C17.0.0%2CN%3Bhighloadblock%2C17.0.2%2CN%3Bthebrainstech.copyiblock%2C1.1.0%2CN%3Bfileman%2C17.5.0%2CN%3Bbitrixcloud%2C17.0.0%2CN%3Bclouds%2C17.0.0%2CN%3Bsearch%2C17.0.1%2CN%3Bcompression%2C16.0.0%2CN%3Biblock%2C17.0.9%2CN%3Btranslate%2C15.0.0%2CN%3Bsocialservices%2C17.1.4%2CN%3Bb24connector%2C17.0.1%2CN%3Bseo%2C17.0.6%2CN&reqm=asd.tplvars%2Cbitrix.sitecorporate%2Cthebrainstech.copyiblock&fullmoduleinfo=Y&SUPD_SRS=RU&SUPD_CMP=N
+2017-11-02 14:41:48 -  - exec CUpdateClientPartner::GetHTTPPage
+2017-11-02 14:41:48 - ERRCONN - Error connecting 2 www.bitrixsoft.com: [] 
+2017-11-02 14:41:48 -  - TIME GetUpdatesList(request) 0.002 sec
+2017-11-02 14:41:48 - GUL02 - Ошибка соединения с сервером обновлений: [] . Нет соединения с сервером обновлений. 
+2017-11-02 14:41:55 -  - exec CUpdateClientPartner::GetUpdatesList
+2017-11-02 14:41:55 -  - exec CUpdateClientPartner::__CollectRequestData
+2017-11-02 14:41:55 -  - utf=Y&lang=ru&stable=Y&CANGZIP=Y&SUPD_DBS=MYSQL&XE=N&CLIENT_SITE=teatro36.ru&LICENSE_KEY=X&SUPD_STS=1&SUPD_URS=0&SUPD_URSA=2&TYPENC=D&CLIENT_PHPVER=5.6.32&NGINX=Y&dbv=5.5.56&instm=main%2C17.0.9%2CY%3Basd.tplvars%2C1.5.1%2CN%3Bbitrix.sitecorporate%2C15.5.0%2CN%3Bperfmon%2C17.0.0%2CN%3Bhighloadblock%2C17.0.2%2CN%3Bthebrainstech.copyiblock%2C1.1.0%2CN%3Bfileman%2C17.5.0%2CN%3Bbitrixcloud%2C17.0.0%2CN%3Bclouds%2C17.0.0%2CN%3Bsearch%2C17.0.1%2CN%3Bcompression%2C16.0.0%2CN%3Biblock%2C17.0.9%2CN%3Btranslate%2C15.0.0%2CN%3Bsocialservices%2C17.1.4%2CN%3Bb24connector%2C17.0.1%2CN%3Bseo%2C17.0.6%2CN&reqm=asd.tplvars%2Cbitrix.sitecorporate%2Cthebrainstech.copyiblock&fullmoduleinfo=Y&SUPD_SRS=RU&SUPD_CMP=N
+2017-11-02 14:41:55 -  - exec CUpdateClientPartner::GetHTTPPage
+2017-11-02 14:41:55 - ERRCONN - Error connecting 2 www.bitrixsoft.com: [] 
+2017-11-02 14:41:55 -  - TIME GetUpdatesList(request) 0.001 sec
+2017-11-02 14:41:55 - GUL02 - Ошибка соединения с сервером обновлений: [] . Нет соединения с сервером обновлений. 

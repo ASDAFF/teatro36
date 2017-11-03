@@ -74,11 +74,15 @@ $APPLICATION->SetTitle("dop-programm");
         );?>
 
 
-        <div class="breadcrumbs">
-            <a href="/" class="pathway">Главная</a>
-            <img src="/media/system/images/arrow.png" alt=""  />
-            <span>Программы</span>
-        </div>
+        <?$APPLICATION->IncludeComponent(
+            "bitrix:breadcrumb",
+            "breadcrumbs",
+            Array(
+                "PATH" => "",
+                "SITE_ID" => "s1",
+                "START_FROM" => "0"
+            )
+        );?>
 
         <?
         $APPLICATION->IncludeFile("/include/it-is-interesting-link.php", Array(), Array(

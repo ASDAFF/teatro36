@@ -1,5 +1,25 @@
 jQuery(document).ready(function($){
 
+
+  $('#submit').click(function(){
+   var data = $('#userForm').serializeArray();
+
+    $.post("/ajax/reviews.php", data)
+        .done(function(data) {
+          if(data){
+          $('.rsform-block').remove();
+          $('.mes').remove();
+          $('.cp_form_title').html('<span style="line-height: 1.3em;">Спасибо за отзыв, после проверки администратором он будет опубликован на сайте.</span>');
+          }else{
+            $('.mes').text('Заполните, пожалуйста, все обязательные поля.');
+          }
+
+        });
+
+    return false;
+  });
+
+
   $(".popup-yes").click(function () {
     $.cookie("popup", "24house", {expires: 0});
     $("#parent_popup").hide();

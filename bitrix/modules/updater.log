@@ -1,0 +1,61 @@
+2017-10-31 17:36:40 - CRUPDCDF2 - Run updater '/bitrix/updates/update_m1509460600/asd.tplvars/updater1.5.0.php': Query(create table if not exists b_asd_option_descr
+(
+	ID INT not null auto_increment,
+	NAME VARCHAR(50) not null,
+	DESCRIPTION VARCHAR(255),
+	SITE_ID CHAR(2),
+	PRIMARY KEY (ID),
+	INDEX ASD_OPTION_NAME (NAME),
+	INDEX ASD_OPTION_SITE (SITE_ID)
+);, )
+2017-11-01 17:37:36 -  - exec CUpdateClient::GetUpdatesList
+2017-11-01 17:37:36 -  - exec CUpdateClient::CollectRequestData
+2017-11-01 17:37:36 -  - LICENSE_KEY=X&lang=ru&SUPD_VER=17.0.7&VERSION=17.0.9&TYPENC=D&SUPD_STS=1&SUPD_URS=0&SUPD_DBS=MYSQL&XE=N&CLIENT_SITE=teatro36.ru&CHHB=teatro36.ru&CSAB=176.31.14.128&SUID=4fd3d5bc1527802d2f50ecda995fb878&CANGZIP=Y&CLIENT_PHPVER=5.6.32&stable=Y&NGINX=Y&rerere=Y&bitm_main=17.0.9&bitm_perfmon=17.0.0&bitm_highloadblock=17.0.2&bitm_fileman=17.5.0&bitm_bitrixcloud=17.0.0&bitm_clouds=17.0.0&bitm_search=17.0.1&bitm_compression=16.0.0&bitm_iblock=17.0.9&bitm_translate=15.0.0&bitm_socialservices=17.1.4&bitm_b24connector=17.0.1&bitm_seo=17.0.6&bitl_ru=&bitl_en=&SUPD_SRS=RU&SUPD_CMP=N&SALE_15=Y
+2017-11-01 17:37:36 -  - exec CUpdateClient::GetHTTPPage
+2017-11-01 17:37:36 - ERRCONN - Error connecting 2 www.bitrixsoft.com: [] 
+2017-11-01 17:37:36 -  - TIME GetUpdatesList(request) 0.004 sec
+2017-11-01 17:37:36 - GUL02 - Ошибка соединения с сервером обновлений: [] . Нет соединения с сервером обновлений. 
+2017-11-01 17:37:51 -  - exec CUpdateClient::ActivateCoupon
+2017-11-01 17:37:51 -  - exec CUpdateClient::CollectRequestData
+2017-11-01 17:37:51 -  - LICENSE_KEY=X&lang=ru&SUPD_VER=17.0.7&VERSION=17.0.9&TYPENC=D&SUPD_STS=1&SUPD_URS=0&SUPD_DBS=MYSQL&XE=N&CLIENT_SITE=teatro36.ru&CHHB=teatro36.ru&CSAB=176.31.14.128&SUID=4fd3d5bc1527802d2f50ecda995fb878&CANGZIP=Y&CLIENT_PHPVER=5.6.32&stable=Y&NGINX=Y&rerere=Y&bitm_main=17.0.9&bitm_perfmon=17.0.0&bitm_highloadblock=17.0.2&bitm_fileman=17.5.0&bitm_bitrixcloud=17.0.0&bitm_clouds=17.0.0&bitm_search=17.0.1&bitm_compression=16.0.0&bitm_iblock=17.0.9&bitm_translate=15.0.0&bitm_socialservices=17.1.4&bitm_b24connector=17.0.1&bitm_seo=17.0.6&bitl_ru=&bitl_en=&SUPD_SRS=RU&SUPD_CMP=N&SALE_15=Y&coupon=S16-NA-47SVUPHGG0Z9WHW2&query_type=coupon
+2017-11-01 17:37:51 -  - exec CUpdateClient::GetHTTPPage
+2017-11-01 17:37:51 - ERRCONN - Error connecting 2 www.bitrixsoft.com: [] 
+2017-11-01 17:37:51 -  - TIME ActivateCoupon(request) 0.001 sec
+2017-11-01 17:37:51 - AC - Ошибка соединения с сервером обновлений: [] . Нет соединения с сервером обновлений. 
+2017-11-01 17:37:51 - UPD_ERROR - Error: Ошибка соединения с сервером обновлений: [] . Нет соединения с сервером обновлений. Ошибка активации купона. 
+2017-11-01 17:37:58 -  - exec CUpdateClient::GetUpdatesList
+2017-11-01 17:37:58 -  - exec CUpdateClient::CollectRequestData
+2017-11-01 17:37:58 -  - LICENSE_KEY=X&lang=ru&SUPD_VER=17.0.7&VERSION=17.0.9&TYPENC=D&SUPD_STS=1&SUPD_URS=0&SUPD_DBS=MYSQL&XE=N&CLIENT_SITE=teatro36.ru&CHHB=teatro36.ru&CSAB=176.31.14.128&SUID=4fd3d5bc1527802d2f50ecda995fb878&CANGZIP=Y&CLIENT_PHPVER=5.6.32&stable=Y&NGINX=Y&rerere=Y&bitm_main=17.0.9&bitm_perfmon=17.0.0&bitm_highloadblock=17.0.2&bitm_fileman=17.5.0&bitm_bitrixcloud=17.0.0&bitm_clouds=17.0.0&bitm_search=17.0.1&bitm_compression=16.0.0&bitm_iblock=17.0.9&bitm_translate=15.0.0&bitm_socialservices=17.1.4&bitm_b24connector=17.0.1&bitm_seo=17.0.6&bitl_ru=&bitl_en=&SUPD_SRS=RU&SUPD_CMP=N&SALE_15=Y
+2017-11-01 17:37:58 -  - exec CUpdateClient::GetHTTPPage
+2017-11-01 17:37:58 - ERRCONN - Error connecting 2 www.bitrixsoft.com: [] 
+2017-11-01 17:37:58 -  - TIME GetUpdatesList(request) 0 sec
+2017-11-01 17:37:58 - GUL02 - Ошибка соединения с сервером обновлений: [] . Нет соединения с сервером обновлений. 
+2017-11-01 17:38:06 -  - exec CUpdateClient::ActivateCoupon
+2017-11-01 17:38:06 -  - exec CUpdateClient::CollectRequestData
+2017-11-01 17:38:06 -  - LICENSE_KEY=X&lang=ru&SUPD_VER=17.0.7&VERSION=17.0.9&TYPENC=D&SUPD_STS=1&SUPD_URS=0&SUPD_DBS=MYSQL&XE=N&CLIENT_SITE=teatro36.ru&CHHB=teatro36.ru&CSAB=176.31.14.128&SUID=4fd3d5bc1527802d2f50ecda995fb878&CANGZIP=Y&CLIENT_PHPVER=5.6.32&stable=Y&NGINX=Y&rerere=Y&bitm_main=17.0.9&bitm_perfmon=17.0.0&bitm_highloadblock=17.0.2&bitm_fileman=17.5.0&bitm_bitrixcloud=17.0.0&bitm_clouds=17.0.0&bitm_search=17.0.1&bitm_compression=16.0.0&bitm_iblock=17.0.9&bitm_translate=15.0.0&bitm_socialservices=17.1.4&bitm_b24connector=17.0.1&bitm_seo=17.0.6&bitl_ru=&bitl_en=&SUPD_SRS=RU&SUPD_CMP=N&SALE_15=Y&coupon=S16-NA-47SVUPHGG0Z9WHW2&query_type=coupon
+2017-11-01 17:38:06 -  - exec CUpdateClient::GetHTTPPage
+2017-11-01 17:38:06 - ERRCONN - Error connecting 2 www.bitrixsoft.com: [] 
+2017-11-01 17:38:06 -  - TIME ActivateCoupon(request) 0.001 sec
+2017-11-01 17:38:06 - AC - Ошибка соединения с сервером обновлений: [] . Нет соединения с сервером обновлений. 
+2017-11-01 17:38:06 - UPD_ERROR - Error: Ошибка соединения с сервером обновлений: [] . Нет соединения с сервером обновлений. Ошибка активации купона. 
+2017-11-01 17:40:23 -  - exec CUpdateClient::GetUpdatesList
+2017-11-01 17:40:23 -  - exec CUpdateClient::CollectRequestData
+2017-11-01 17:40:23 -  - LICENSE_KEY=X&lang=ru&SUPD_VER=17.0.7&VERSION=17.0.9&TYPENC=D&SUPD_STS=1&SUPD_URS=0&SUPD_DBS=MYSQL&XE=N&CLIENT_SITE=teatro36.ru&CHHB=teatro36.ru&CSAB=176.31.14.128&SUID=4fd3d5bc1527802d2f50ecda995fb878&CANGZIP=Y&CLIENT_PHPVER=5.6.32&stable=Y&NGINX=Y&rerere=Y&bitm_main=17.0.9&bitm_perfmon=17.0.0&bitm_highloadblock=17.0.2&bitm_fileman=17.5.0&bitm_bitrixcloud=17.0.0&bitm_clouds=17.0.0&bitm_search=17.0.1&bitm_compression=16.0.0&bitm_iblock=17.0.9&bitm_translate=15.0.0&bitm_socialservices=17.1.4&bitm_b24connector=17.0.1&bitm_seo=17.0.6&bitl_ru=&bitl_en=&SUPD_SRS=RU&SUPD_CMP=N&SALE_15=Y
+2017-11-01 17:40:23 -  - exec CUpdateClient::GetHTTPPage
+2017-11-01 17:40:23 - ERRCONN - Error connecting 2 www.bitrixsoft.com: [] 
+2017-11-01 17:40:23 -  - TIME GetUpdatesList(request) 0.001 sec
+2017-11-01 17:40:23 - GUL02 - Ошибка соединения с сервером обновлений: [] . Нет соединения с сервером обновлений. 
+2017-11-01 17:40:29 -  - exec CUpdateClient::GetUpdatesList
+2017-11-01 17:40:29 -  - exec CUpdateClient::CollectRequestData
+2017-11-01 17:40:29 -  - LICENSE_KEY=X&lang=ru&SUPD_VER=17.0.7&VERSION=17.0.9&TYPENC=D&SUPD_STS=1&SUPD_URS=0&SUPD_DBS=MYSQL&XE=N&CLIENT_SITE=teatro36.ru&CHHB=teatro36.ru&CSAB=176.31.14.128&SUID=4fd3d5bc1527802d2f50ecda995fb878&CANGZIP=Y&CLIENT_PHPVER=5.6.32&stable=Y&NGINX=Y&rerere=Y&bitm_main=17.0.9&bitm_perfmon=17.0.0&bitm_highloadblock=17.0.2&bitm_fileman=17.5.0&bitm_bitrixcloud=17.0.0&bitm_clouds=17.0.0&bitm_search=17.0.1&bitm_compression=16.0.0&bitm_iblock=17.0.9&bitm_translate=15.0.0&bitm_socialservices=17.1.4&bitm_b24connector=17.0.1&bitm_seo=17.0.6&bitl_ru=&bitl_en=&SUPD_SRS=RU&SUPD_CMP=N&SALE_15=Y
+2017-11-01 17:40:29 -  - exec CUpdateClient::GetHTTPPage
+2017-11-01 17:40:29 - ERRCONN - Error connecting 2 www.bitrixsoft.com: [] 
+2017-11-01 17:40:29 -  - TIME GetUpdatesList(request) 0.001 sec
+2017-11-01 17:40:29 - GUL02 - Ошибка соединения с сервером обновлений: [] . Нет соединения с сервером обновлений. 
+2017-11-01 17:40:31 -  - exec CUpdateClient::GetUpdatesList
+2017-11-01 17:40:31 -  - exec CUpdateClient::CollectRequestData
+2017-11-01 17:40:31 -  - LICENSE_KEY=X&lang=ru&SUPD_VER=17.0.7&VERSION=17.0.9&TYPENC=D&SUPD_STS=1&SUPD_URS=0&SUPD_DBS=MYSQL&XE=N&CLIENT_SITE=teatro36.ru&CHHB=teatro36.ru&CSAB=176.31.14.128&SUID=4fd3d5bc1527802d2f50ecda995fb878&CANGZIP=Y&CLIENT_PHPVER=5.6.32&stable=Y&NGINX=Y&rerere=Y&bitm_main=17.0.9&bitm_perfmon=17.0.0&bitm_highloadblock=17.0.2&bitm_fileman=17.5.0&bitm_bitrixcloud=17.0.0&bitm_clouds=17.0.0&bitm_search=17.0.1&bitm_compression=16.0.0&bitm_iblock=17.0.9&bitm_translate=15.0.0&bitm_socialservices=17.1.4&bitm_b24connector=17.0.1&bitm_seo=17.0.6&bitl_ru=&bitl_en=&SUPD_SRS=RU&SUPD_CMP=N&SALE_15=Y
+2017-11-01 17:40:31 -  - exec CUpdateClient::GetHTTPPage
+2017-11-01 17:40:31 - ERRCONN - Error connecting 2 www.bitrixsoft.com: [] 
+2017-11-01 17:40:31 -  - TIME GetUpdatesList(request) 0.001 sec
+2017-11-01 17:40:31 - GUL02 - Ошибка соединения с сервером обновлений: [] . Нет соединения с сервером обновлений. 

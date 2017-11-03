@@ -1,5 +1,5 @@
 <?
-$sSectionName = "dop-programm";
+$sSectionName = "Репертуар";
 $arDirProperties = Array(
 
 );

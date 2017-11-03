@@ -11,9 +11,62 @@ ErrorDocument 404 /404.php
   #php_value mbstring.internal_encoding UTF-8
 </IfModule>
 
+  Redirect 301 /devushki /actresses/
+  Redirect 301 /dopolnitelnye-programmy /dop-programm/
+  Redirect 301 /rez/teatralnoe-uchilishche /teatralnoe-uchilishche/
+  Redirect 301 /specpredlojenie /offers/
+  Redirect 301 /o-teatro/interer /interer/
+  Redirect 301 /o-teatro/otzyvy /reviews/
+  Redirect 301 /o-teatro/pravila-poseshcheniya /pravila-poseshcheniya/
+  Redirect 301 /o-teatro/trudoustrojstvo /trudoustrojstvo/
+  Redirect 301 /kontakty /contacts/
+  Redirect 301 /eto-interesno /it-is-interesting/
+  
+RewriteCond %{HTTP_HOST} ^www.teatro36\.ru$ [NC]
+RewriteRule ^(.*)$ http://teatro36.ru/$1 [R=301,L]
+
+RewriteBase /
+RewriteRule (.*)\.html$ $1 [R=301,L]
+
+RewriteCond %{THE_REQUEST} ^[A-Z]{3,9}\ /index\.php\ HTTP/
+RewriteRule ^index\.php$ http://teatro36.ru [R=301,L]
+  
 <IfModule mod_rewrite.c>
   Options +FollowSymLinks
   RewriteEngine On
+  
+  
+  RewriteCond %{QUERY_STRING} (^|&)Itemid\=0($|&)
+RewriteRule ^component/jshopping/product/view/1/63$ /actresses/agata/? [L,R=301]
+RewriteCond %{QUERY_STRING} (^|&)Itemid\=0($|&)
+RewriteRule ^component/jshopping/product/view/1/62$ /actresses/ada/? [L,R=301]
+RewriteCond %{QUERY_STRING} (^|&)Itemid\=0($|&)
+RewriteRule ^component/jshopping/product/view/1/34$ /actresses/alisa/? [L,R=301]
+RewriteCond %{QUERY_STRING} (^|&)Itemid\=0($|&)
+RewriteRule ^component/jshopping/product/view/1/60$ /actresses/alina/? [L,R=301]
+RewriteCond %{QUERY_STRING} (^|&)Itemid\=0($|&)
+RewriteRule ^component/jshopping/product/view/1/68$ /actresses/angelina/? [L,R=301]
+RewriteCond %{QUERY_STRING} (^|&)Itemid\=0($|&)
+RewriteRule ^component/jshopping/product/view/1/28$ /actresses/arina/? [L,R=301]
+RewriteCond %{QUERY_STRING} (^|&)Itemid\=0($|&)
+RewriteRule ^component/jshopping/product/view/1/71$ /actresses/eva/? [L,R=301]
+RewriteCond %{QUERY_STRING} (^|&)Itemid\=0($|&)
+RewriteRule ^component/jshopping/product/view/1/42$ /actresses/ekaterina/? [L,R=301]
+RewriteCond %{QUERY_STRING} (^|&)Itemid\=0($|&)
+RewriteRule ^component/jshopping/product/view/1/35$ /actresses/kristina/? [L,R=301]
+RewriteCond %{QUERY_STRING} (^|&)Itemid\=0($|&)
+RewriteRule ^component/jshopping/product/view/1/69$ /actresses/lada/? [L,R=301]
+RewriteCond %{QUERY_STRING} (^|&)Itemid\=0($|&)
+RewriteRule ^component/jshopping/product/view/1/70$ /actresses/liza/? [L,R=301]
+RewriteCond %{QUERY_STRING} (^|&)Itemid\=0($|&)
+RewriteRule ^component/jshopping/product/view/1/64$ /actresses/lilit/? [L,R=301]
+RewriteCond %{QUERY_STRING} (^|&)Itemid\=0($|&)
+RewriteRule ^component/jshopping/product/view/1/40$ /actresses/taisiya/? [L,R=301]
+RewriteCond %{QUERY_STRING} (^|&)Itemid\=0($|&)
+RewriteRule ^component/jshopping/product/view/1/67$ /actresses/elya/? [L,R=301]
+
+  
+  
 
 RewriteCond %{REQUEST_FILENAME} -f [OR]
 RewriteCond %{REQUEST_FILENAME} -l [OR]

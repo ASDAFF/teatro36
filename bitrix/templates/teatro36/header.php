@@ -1,9 +1,11 @@
 
-
 <!DOCTYPE html>
 <html>
 <head>
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+
+    <link rel="icon" href="/favicon.ico">
+
 
     <title><?$APPLICATION->ShowTitle()?></title>
 
@@ -94,10 +96,10 @@
                             <li class="item-144"><span class="separator"><img src="/images/menu_point.png" alt="point4" /></span></li>
                             <li class="item-153 deeper parent"><span class="separator">О Teatro</span>
                                 <ul>
-                                    <li class="item-105"><a href="/o-teatro/interer.html" >Интерьер</a></li>
-                                    <li class="item-106"><a href="/o-teatro/otzyvy.html" >Отзывы</a></li>
-                                    <li class="item-147"><a href="/o-teatro/pravila-poseshcheniya.html" >Правила посещения</a></li>
-                                    <li class="item-150"><a href="/o-teatro/trudoustrojstvo.html" >Трудоустройство</a></li>
+                                    <li class="item-105"><a href="/interer/" >Интерьер</a></li>
+                                    <li class="item-106"><a href="/reviews/" >Отзывы</a></li>
+                                    <li class="item-147"><a href="/pravila-poseshcheniya/" >Правила посещения</a></li>
+                                    <li class="item-150"><a href="/trudoustrojstvo/" >Трудоустройство</a></li>
                                 </ul>
                             </li>
                             <li class="item-145"><span class="separator"><img src="/images/menu_point.png" alt="point5" /></span></li>
