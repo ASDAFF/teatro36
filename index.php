@@ -1,6 +1,6 @@
 <?
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
-$APPLICATION->SetPageProperty("title", "Салон эротического массажа для мужчин в Воронеже | Teatro");
+$APPLICATION->SetPageProperty("title", "Салон эротического релакса для мужчин в Воронеже | «Teatro»");
 $APPLICATION->SetTitle("");
 ?>
 
@@ -28,6 +28,30 @@ $APPLICATION->SetTitle("");
 			<a href="/actresses/" class="btn-action">Выбрать актрису</a>
 
 
+<div style="display:none">
+    <div id="about_salon" class="modal">
+        <div class="modal_wrap">
+            <div class="modal_text">
+                <div class="scrollbar-inner">
+                    <div class="mod_pad">
+                        <div class="moduletable">
+
+                            <?
+                            $APPLICATION->IncludeFile("/include/about_salon.php", Array(), Array(
+                                "MODE"      => "html",                                           // будет редактировать в веб-редакторе
+                                "NAME"      => "Редактирование включаемой области раздела",      // текст всплывающей подсказки на иконке
+                                "TEMPLATE"  => ""                    // имя шаблона для нового файла
+                            ));
+                            ?>
+
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 
 
 <?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>

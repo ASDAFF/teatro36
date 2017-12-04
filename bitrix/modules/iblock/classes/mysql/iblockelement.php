@@ -293,6 +293,7 @@ class CIBlockElement extends CAllIBlockElement
 				"IN_SECTIONS"=>"BE.IN_SECTIONS",
 				"SHOW_COUNTER"=>"BE.SHOW_COUNTER",
 				"SHOW_COUNTER_START"=>$DB->DateToCharFunction("BE.SHOW_COUNTER_START"),
+				"SHOW_COUNTER_START_X"=>"BE.SHOW_COUNTER_START",
 				"CODE"=>"BE.CODE",
 				"TAGS"=>"BE.TAGS",
 				"XML_ID"=>"BE.XML_ID",
@@ -2203,6 +2204,11 @@ class CIBlockElement extends CAllIBlockElement
 								//But save description from incoming value
 								if (array_key_exists("description", $val))
 									$description = trim($val["description"]);
+								elseif (
+									is_array($orderedPROP[$res["ID"]])
+									&& array_key_exists("DESCRIPTION", $orderedPROP[$res["ID"]])
+								)
+									$description = trim($orderedPROP[$res["ID"]]["DESCRIPTION"]);
 
 								$orderedPROP[$res["ID"]] = array(
 									"VALUE" => $res["VALUE"],

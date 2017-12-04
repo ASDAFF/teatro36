@@ -14,18 +14,17 @@
 
 	BX.UserConsent = {
 		msg: {
-			'title': BX.message('MAIN_USER_CONSENT_REQUEST_TITLE'),
-			'btnAccept': BX.message('MAIN_USER_CONSENT_REQUEST_BTN_ACCEPT'),
-			'btnReject': BX.message('MAIN_USER_CONSENT_REQUEST_BTN_REJECT'),
-			'loading': BX.message('MAIN_USER_CONSENT_REQUEST_LOADING'),
-			'errTextLoad': BX.message('MAIN_USER_CONSENT_REQUEST_ERR_TEXT_LOAD')
+			'title': 'MAIN_USER_CONSENT_REQUEST_TITLE',
+			'btnAccept': 'MAIN_USER_CONSENT_REQUEST_BTN_ACCEPT',
+			'btnReject': 'MAIN_USER_CONSENT_REQUEST_BTN_REJECT',
+			'loading': 'MAIN_USER_CONSENT_REQUEST_LOADING',
+			'errTextLoad': 'MAIN_USER_CONSENT_REQUEST_ERR_TEXT_LOAD'
 		},
 		events: {
 			'save': 'main-user-consent-request-save',
 			'refused': 'main-user-consent-request-refused',
 			'accepted': 'main-user-consent-request-accepted'
 		},
-		textList: {},
 		current: null,
 		autoSave: false,
 		isFormSubmitted: false,
@@ -265,8 +264,8 @@
 
 				this.nodes.buttonAccept = this.nodes.container.querySelector('[data-bx-btn-accept]');
 				this.nodes.buttonReject = this.nodes.container.querySelector('[data-bx-btn-reject]');
-				this.nodes.buttonAccept.textContent = this.caller.msg.btnAccept;
-				this.nodes.buttonReject.textContent = this.caller.msg.btnReject;
+				this.nodes.buttonAccept.textContent = BX.message(this.caller.msg.btnAccept);
+				this.nodes.buttonReject.textContent = BX.message(this.caller.msg.btnReject);
 				BX.bind(this.nodes.buttonAccept, 'click', this.onAccept.bind(this));
 				BX.bind(this.nodes.buttonReject, 'click', this.onReject.bind(this));
 
@@ -303,10 +302,52 @@
 				this.nodes.container.style.display = 'none';
 			}
 		},
+
+		cache: {
+			list: [],
+			stringifyKey: function (key)
+			{
+				return BX.type.isString(key) ? key : JSON.stringify({'key': key});
+			},
+			set: function (key, data)
+			{
+				var item = this.get(key);
+				if (item)
+				{
+					item.data = data;
+				}
+				else
+				{
+					this.list.push({
+						'key': this.stringifyKey(key),
+						'data': data
+					});
+				}
+			},
+			getData: function (key)
+			{
+				var item = this.get(key);
+				return item ? item.data : null;
+			},
+			get: function (key)
+			{
+				key = this.stringifyKey(key);
+				var filtered = this.list.filter(function (item) {
+					return (item.key == key);
+				});
+				return (filtered.length > 0 ? filtered[0] : null);
+			},
+			has: function (key)
+			{
+				return !!this.get(key);
+			}
+		},
 		requestConsent: function (id, sendData, onAccepted, onRefused)
 		{
 			sendData = sendData || {};
 			sendData.id = id;
+
+			var cacheHash = this.cache.stringifyKey(sendData);
 
 			if (!this.popup.isInit)
 			{
@@ -322,28 +363,28 @@
 
 			if (this.current && this.current.config.text)
 			{
-				this.textList[id] = this.current.config.text;
+				this.cache.set(cacheHash, this.current.config.text);
 			}
 
-			if (this.textList.hasOwnProperty(id))
+			if (this.cache.has(cacheHash))
 			{
-				this.setTextToPopup(this.textList[id]);
+				this.setTextToPopup(this.cache.getData(cacheHash));
 			}
 			else
 			{
-				this.popup.setTitle(this.msg.loading);
+				this.popup.setTitle(BX.message(this.msg.loading));
 				this.popup.show(false);
 				this.sendActionRequest(
 					'getText', sendData,
 					function (data)
 					{
-						this.textList[id] = data.text || '';
-						this.setTextToPopup(this.textList[id]);
+						this.cache.set(cacheHash, data.text || '');
+						this.setTextToPopup(this.cache.getData(cacheHash));
 					},
 					function ()
 					{
 						this.popup.hide();
-						alert(this.msg.errTextLoad);
+						alert(BX.message(this.msg.errTextLoad));
 					}
 				);
 			}
@@ -360,7 +401,7 @@
 				titleBar = text.substr(0, textTitlePos).trim();
 				titleBar  = titleBar.split(".").map(Function.prototype.call, String.prototype.trim).filter(String)[0];
 			}
-			this.popup.setTitle(titleBar ? titleBar : this.msg.title);
+			this.popup.setTitle(titleBar ? titleBar : BX.message(this.msg.title));
 			this.popup.setContent(text);
 			this.popup.show(true);
 		},

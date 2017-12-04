@@ -1,87 +1,3 @@
-User-agent: Yandex
-Disallow: /bitrix/
-Disallow: /search/
-Allow: /search/map.php
-Disallow: /auth/
-Disallow: /auth.php
-Disallow: /*?print=
-Disallow: /*&print=
-Disallow: /*register=yes
-Disallow: /*forgot_password=yes
-Disallow: /*change_password=yes
-Disallow: /*login=yes
-Disallow: /*logout=yes
-Disallow: /*auth=yes
-Disallow: /*backurl=*
-Disallow: /*BACKURL=*
-Disallow: /*back_url=*
-Disallow: /*BACK_URL=*
-Disallow: /*back_url_admin=*
-Disallow: /*index.php$
-Disallow: /administrator
-Disallow: /cache
-Disallow: /cli
-Disallow: /components
-Disallow: /images
-Disallow: /includes
-Disallow: /installation
-Disallow: /language
-Disallow: /libraries
-Disallow: /logs
-Disallow: /media
-Disallow: /modules
-Disallow: /plugins
-Disallow: /templates
-Disallow: /tmp
-Disallow: /*.pdf
-Disallow: /*.xls
-Disallow: /*.doc
-Disallow: /*.ppt
-Disallow: /*.txt
-Clean-param: utm_source&utm_medium&utm_term&utm_content&utm_campaign&yclid&gclid&_openstat&from /
-Host: teatro36.ru
-
-User-agent: Googlebot
-Disallow: /bitrix/
-Disallow: /search/
-Allow: /search/map.php
-Disallow: /auth/
-Disallow: /auth.php
-Disallow: /*?print=
-Disallow: /*&print=
-Disallow: /*register=yes
-Disallow: /*forgot_password=yes
-Disallow: /*change_password=yes
-Disallow: /*login=yes
-Disallow: /*logout=yes
-Disallow: /*auth=yes
-Disallow: /*backurl=*
-Disallow: /*BACKURL=*
-Disallow: /*back_url=*
-Disallow: /*BACK_URL=*
-Disallow: /*back_url_admin=*
-Disallow: /*index.php$
-Disallow: /administrator
-Disallow: /cache
-Disallow: /cli
-Disallow: /components
-Disallow: /images
-Disallow: /includes
-Disallow: /installation
-Disallow: /language
-Disallow: /libraries
-Disallow: /logs
-Disallow: /media
-Disallow: /modules
-Disallow: /plugins
-Disallow: /templates
-Disallow: /tmp
-Disallow: /*.pdf
-Disallow: /*.xls
-Disallow: /*.doc
-Disallow: /*.ppt
-Disallow: /*.txt
-
 User-agent: *
 Disallow: /bitrix/
 Disallow: /search/
@@ -126,5 +42,19 @@ Disallow: /*.xls
 Disallow: /*.doc
 Disallow: /*.ppt
 Disallow: /*.txt
+Disallow: *it-is-interesting*
+# Требуется для правильно обработки ПС
+Allow: /*.css
+Allow: /*.js
+# Картинки
+Allow: /*.jpg
+Allow: /*.jpeg
+Allow: /*.png
+Allow: /*.gif
+Clean-param: utm_source&utm_medium&utm_term&utm_content&utm_campaign&yclid&gclid&_openstat&from /
+Host: http://teatro36.ru/
 
 Sitemap: http://teatro36.ru/sitemap.xml
+
+
+

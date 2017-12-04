@@ -5,7 +5,7 @@ $pathCSSPanel = '/bitrix/panel/main';
 $pathLang = BX_ROOT.'/modules/main/lang/'.LANGUAGE_ID;
 //WARNING: Don't use CUserOptions here! CJSCore::Init can be called from php_interface/init.php where no $USER exists
 
-$amChartsPath = '/bitrix/js/main/amcharts/3.13/';
+$amChartsPath = '/bitrix/js/main/amcharts/3.21/';
 
 $arJSCoreConfig = array(
 	'ajax' => array(
@@ -102,11 +102,22 @@ $arJSCoreConfig = array(
 		'css' => $pathCSS.'/core_finder.css',
 		'rel' => array('popup', 'ajax', 'db_indexeddb'),
 	),
+	'user' => array(
+		'js' => $pathJS.'/core_user.js',
+		'lang' => $pathLang.'/js_core_user.php',
+		'rel' => array('date'),
+		'lang_additional' => array(
+			'LIMIT_ONLINE' => method_exists('CUser', 'GetSecondsForLimitOnline')? CUser::GetSecondsForLimitOnline(): 1440 // we use this condition because has a fatal error while running updater "main 17.5.0" witch calling the OnAfterEpilog event.
+		),
+	),
 	'date' => array(
 		'js' => $pathJS.'/core_date.js',
 		'css' => $pathCSS.'/core_date.css',
 		'lang' => $pathLang.'/date_format.php',
-		'lang_additional' => array('WEEK_START' => CSite::GetWeekStart()),
+		'lang_additional' => array(
+			'WEEK_START' => CSite::GetWeekStart(),
+			'AMPM_MODE' => IsAmPmMode(true),
+		),
 		'rel' => array('popup'),
 	),
 	'ls' => array(
@@ -148,6 +159,7 @@ $arJSCoreConfig = array(
 			"phpUploadMaxFilesize" => CUtil::Unformat(ini_get("upload_max_filesize")),
 			"bxImageExtensions" => CFile::GetImageExtensions(),
 			"bxUploaderLog" => COption::GetOptionString("main", "uploaderLog", "N"),
+			"bxQuota"=> CDiskQuota::getInstance()->GetDiskQuota()
 		),
 		'lang' => $pathLang.'/js_core_uploader.php',
 		'rel' => array('ajax', 'dd'),
@@ -204,6 +216,15 @@ $arJSCoreConfig = array(
 			'ui_date'
 		)
 	),
+	'resize_observer' => array(
+		'js' => array(
+			$pathJS.'/resize_observer/resize_observer_collection.js',
+			$pathJS.'/resize_observer/resize_observer_item_collection.js',
+			$pathJS.'/resize_observer/resize_observer_item_rect.js',
+			$pathJS.'/resize_observer/resize_observer_item.js',
+			$pathJS.'/resize_observer/resize_observer.js'
+		)
+	),
 	'decl' => array(
 		'js' => $pathJS.'/core_decl.js'
 	),
@@ -237,8 +258,29 @@ $arJSCoreConfig = array(
 		'lang' => $pathLang.'/js/colorpicker.php',
 		'rel' => array('popup'),
 	),
+	'masked_input' => array(
+		'js' => array(
+			'/bitrix/js/main/masked_input.js'
+		)
+	),
 	'fullscreen' => array(
 		'js' => $pathJS.'/core_fullscreen.js'
+	),
+	'spotlight' => array(
+		'js' => '/bitrix/js/main/spotlight/spotlight.js',
+		'css' => '/bitrix/js/main/spotlight/css/spotlight.css',
+		'lang' => $pathLang.'/js/spotlight.php',
+		'rel' => array('popup'),
+	),
+	'sidepanel' => array(
+		'js' => array(
+			'/bitrix/js/main/sidepanel/manager.js',
+			'/bitrix/js/main/sidepanel/slider.js'
+		),
+		'css' => '/bitrix/js/main/sidepanel/css/sidepanel.css',
+		'rel' => array('ajax', 'fx'),
+		'bundle_js' => 'sidepanel',
+		'bundle_css' => 'sidepanel'
 	),
 
 	/* external libs */
@@ -272,6 +314,10 @@ $arJSCoreConfig = array(
 			'AMCHARTS_PATH' => $amChartsPath, // will be needed in 3.14
 			'AMCHARTS_IMAGES_PATH' => $amChartsPath.'images/',
 		),
+		'skip_core' => true,
+	),
+	'amcharts_i18n' => array(
+		'js' => $amChartsPath.LANGUAGE_ID.'/'.LANGUAGE_ID.'.js',
 		'skip_core' => true,
 	),
 	'amcharts_funnel' => array(
@@ -320,6 +366,34 @@ $arJSCoreConfig = array(
 		'lang' => $pathLang.'/js_core_update_stepper.php',
 		'rel' => array('ajax'),
 	),
+	'uf' => array(
+		'js' => $pathJS.'/core_uf.js',
+		'css' => $pathCSS.'/core_uf.css',
+		'rel' => array('ajax'),
+		'oninit' => function()
+		{
+			return array(
+				'lang_additional' => array(
+					'UF_SITE_TPL' => SITE_TEMPLATE_ID,
+					'UF_SITE_TPL_SIGN' => \Bitrix\Main\UserField\Dispatcher::instance()->getSignatureManager()->getSignature(SITE_TEMPLATE_ID),
+				),
+			);
+		}
+	),
+	'phone_number' => array(
+		'js' => '/bitrix/js/main/phonenumber/phonenumber.js',
+		'css' => '/bitrix/js/main/phonenumber/css/phonenumber.css',
+		'oninit' => function()
+		{
+			return array(
+				'lang_additional' => array(
+					'phone_number_default_country' => \Bitrix\Main\PhoneNumber\Parser::getDefaultCountry(),
+					'user_default_country' => \Bitrix\Main\PhoneNumber\Parser::getUserDefaultCountry()
+				)
+			);
+		},
+		'rel' => array('popup'),
+	)
 );
 
 \Bitrix\Main\Page\Asset::getInstance()->addJsKernelInfo(
@@ -330,7 +404,8 @@ $arJSCoreConfig = array(
 		'/bitrix/js/main/core/core_date.js','/bitrix/js/main/core/core_timer.js', '/bitrix/js/main/core/core_fx.js',
 		'/bitrix/js/main/core/core_window.js', '/bitrix/js/main/core/core_autosave.js', '/bitrix/js/main/rating_like.js',
 		'/bitrix/js/main/session.js', '/bitrix/js/main/dd.js', '/bitrix/js/main/utils.js',
-		'/bitrix/js/main/core/core_dd.js', '/bitrix/js/main/core/core_webrtc.js'
+		'/bitrix/js/main/core/core_dd.js', '/bitrix/js/main/core/core_webrtc.js',
+		'/bitrix/js/main/core/core_uf.js'
 	)
 );
 
@@ -338,7 +413,8 @@ $arJSCoreConfig = array(
 	'main',
 	array(
 		'/bitrix/js/main/core/css/core.css', '/bitrix/js/main/core/css/core_popup.css',
-		'/bitrix/js/main/core/css/core_tooltip.css', '/bitrix/js/main/core/css/core_date.css'
+		'/bitrix/js/main/core/css/core_tooltip.css', '/bitrix/js/main/core/css/core_date.css',
+		'/bitrix/js/main/core/css/core_uf.css'
 	)
 );
 

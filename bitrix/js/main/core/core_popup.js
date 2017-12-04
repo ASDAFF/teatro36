@@ -813,7 +813,10 @@ BX.PopupWindow.prototype.bindAutoHide = function()
 	{
 		this.isAutoHideBinded = true;
 		BX.bind(this.popupContainer, "click", this.cancelBubble);
-		BX.bind(document, "click", BX.proxy(this.close, this));
+		if(this.overlay && this.overlay.element)
+			BX.bind(this.overlay.element, "click", BX.proxy(this.close, this));
+		else
+			BX.bind(document, "click", BX.proxy(this.close, this));
 	}
 };
 
@@ -823,7 +826,10 @@ BX.PopupWindow.prototype.unbindAutoHide = function()
 	{
 		this.isAutoHideBinded = false;
 		BX.unbind(this.popupContainer, "click", this.cancelBubble);
-		BX.unbind(document, "click", BX.proxy(this.close, this));
+		if(this.overlay && this.overlay.element)
+			BX.unbind(this.overlay.element, "click", BX.proxy(this.close, this));
+		else
+			BX.unbind(document, "click", BX.proxy(this.close, this));
 	}
 };
 
@@ -1590,6 +1596,22 @@ BX.PopupWindowButtonLink = function(params)
 
 BX.extend(BX.PopupWindowButtonLink, BX.PopupWindowButton);
 
+BX.PopupWindowCustomButton = function(params)
+{
+	BX.PopupWindowCustomButton.superclass.constructor.apply(this, arguments);
+
+	this.buttonNode = BX.create(
+		"span",
+		{
+			props : { className :  (this.className.length > 0 ? " " + this.className : ""), id : this.id },
+			events : this.contextEvents,
+			text : this.text
+		}
+	);
+};
+
+BX.extend(BX.PopupWindowCustomButton, BX.PopupWindowButton);
+
 BX.PopupMenu = {
 
 	Data : {},
@@ -1611,8 +1633,8 @@ BX.PopupMenu = {
 		if (!this.Data[id])
 		{
 			this.Data[id] = new BX.PopupMenuWindow(id, bindElement, menuItems, params);
+			BX.addCustomEvent(this.Data[id], 'onPopupMenuDestroy', this.onPopupDestroy.bind(this));
 		}
-
 		return this.Data[id];
 	},
 
@@ -1624,6 +1646,11 @@ BX.PopupMenu = {
 	getMenuById : function(id)
 	{
 		return this.Data[id] ? this.Data[id] : null;
+	},
+
+	onPopupDestroy: function(popupMenuWindow)
+	{
+		this.destroy(popupMenuWindow.id);
 	},
 
 	destroy : function(id)
@@ -1747,6 +1774,7 @@ BX.PopupMenuWindow.prototype.close = function()
 
 BX.PopupMenuWindow.prototype.destroy = function()
 {
+	BX.onCustomEvent(this, "onPopupMenuDestroy", [this]);
 	this.popupWindow.destroy();
 };
 
@@ -1980,6 +2008,7 @@ BX.PopupMenuWindow.prototype.getMenuItemPosition = function(itemId)
  * @param {number} [options.menuShowDelay = 300]
  * @param {number} [options.subMenuOffsetX = 4]
  * @param {object} [options.events]
+ * @param {object} [options.dataset]
  * @param {function|string} [options.onclick = null]
  * @param {array[]} [options.items = []]
  * @constructor
@@ -1995,6 +2024,7 @@ BX.PopupMenuItem = function(options)
 	this.delimiter = options.delimiter === true;
 	this.href = BX.type.isNotEmptyString(options.href) ? options.href : null;
 	this.target = BX.type.isNotEmptyString(options.target) ? options.target : null;
+	this.dataset = BX.type.isPlainObject(options.dataset) ? options.dataset : null;
 	this.className = BX.type.isNotEmptyString(options.className) ? options.className : null;
 	this.menuShowDelay = BX.type.isNumber(options.menuShowDelay) ? options.menuShowDelay : 300;
 	this.subMenuOffsetX = BX.type.isNumber(options.subMenuOffsetX) ? options.subMenuOffsetX : 4;
@@ -2083,6 +2113,8 @@ BX.PopupMenuItem.prototype = {
 					onclick: BX.type.isString(this.onclick) ? this.onclick : "", // compatibility
 					target : this.target ? this.target : ""
 				},
+
+				dataset: this.dataset,
 
 				events :
 					BX.type.isFunction(this.onclick)

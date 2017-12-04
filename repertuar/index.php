@@ -1,6 +1,6 @@
 <?
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
-$APPLICATION->SetPageProperty("title", "Услуги эротического массажа | Teatro");
+$APPLICATION->SetPageProperty("title", "Услуги эротического релакса| Салон «Teatro»");
 $APPLICATION->SetTitle("repertuar");
 ?>
 

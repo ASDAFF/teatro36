@@ -35,6 +35,9 @@
 }
 
 .pagetitle-toolbar-field-view .pagetitle-inner-container .main-ui-filter-search.main-ui-filter-compact-state {
+	-webkit-box-flex: 1;
+	-ms-flex: 1;
+	flex: 1;
 	margin: 0 7px 0 auto;
 	min-width: 183px;
 	max-width: 183px;
@@ -92,6 +95,10 @@
 
 .main-ui-filter-theme-rounded .main-ui-item-icon-block.main-ui-show {
 	right: 7px;
+}
+
+.main-ui-filter-theme-rounded.main-ui-filter-search .main-ui-square.main-ui-filter-search-square:first-child {
+	margin-left: 16px;
 }
 
 /* END OF ROUNDED FILTER */

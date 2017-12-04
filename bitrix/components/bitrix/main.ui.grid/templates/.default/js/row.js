@@ -69,14 +69,19 @@
 			var self = this;
 			var cells = this.getCells();
 			var values = {};
-			var value;
+			var cellValues;
 
 			[].forEach.call(cells, function(current) {
-				value = self.getCellEditorValue(current);
-
-				if (value)
+				cellValues = self.getCellEditorValue(current);
+				if (BX.type.isArray(cellValues))
 				{
-					values[value.NAME] = value.VALUE !== undefined ? value.VALUE : "";
+					cellValues.forEach(function(cellValue) {
+						values[cellValue.NAME] = cellValue.VALUE !== undefined ? cellValue.VALUE : "";
+					});
+				}
+				else if (cellValues)
+				{
+					values[cellValues.NAME] = cellValues.VALUE !== undefined ? cellValues.VALUE : "";
 				}
 			});
 
@@ -96,6 +101,61 @@
 						'NAME': editor.getAttribute('name'),
 						'VALUE': editor.checked ? 'Y' : 'N'
 					};
+				}
+				else if(BX.hasClass(editor, 'main-grid-editor-custom'))
+				{
+					result = [];
+					editor.querySelectorAll('input, select, checkbox, textarea').forEach(function(element) {
+						switch (element.tagName)
+						{
+							case "SELECT":
+								if (element.multiple)
+								{
+									var selectValues = [];
+									element.querySelectorAll('option').forEach(function(option) {
+										if (option.selected)
+										{
+											selectValues.push(option.value);
+										}
+									});
+									result.push({
+										'NAME': editor.getAttribute('data-name'),
+										'VALUE': selectValues
+									});
+								}
+								else
+								{
+									result.push({
+										'NAME': editor.getAttribute('data-name'),
+										'VALUE': element.value
+									});
+								}
+								break;
+							case 'INPUT':
+								switch(element.type.toUpperCase())
+								{
+									case 'CHECKBOX':
+										result.push({
+											'NAME': editor.getAttribute('data-name'),
+											'VALUE': element.checked ? element.value : ''
+										});
+										break;
+									case 'HIDDEN':
+										break;
+									default:
+										result.push({
+											'NAME': editor.getAttribute('data-name'),
+											'VALUE': element.value
+										});
+								}
+								break;
+							default:
+								result.push({
+									'NAME': editor.getAttribute('data-name'),
+									'VALUE': element.value
+								});
+						}
+					});
 				}
 				else
 				{
@@ -705,7 +765,7 @@
 				var buttonRect = this.getActionsButton().getBoundingClientRect();
 
 				this.actionsMenu = BX.PopupMenu.create(
-					'main-grid-actions-menu-' + this.getIndex(),
+					'main-grid-actions-menu-' + this.getId(),
 					this.getActionsButton(),
 					this.getMenuItems(),
 					{
@@ -717,10 +777,19 @@
 							'offset': ((buttonRect.height / 2) - 8)
 						},
 						'events': {
-							'onPopupClose': BX.delegate(this._onCloseMenu, this)
+							'onPopupClose': BX.delegate(this._onCloseMenu, this),
+							'onPopupShow': BX.delegate(this._onPopupShow, this)
 						}
 					}
 				);
+
+				BX.addCustomEvent('Grid::updated', function() {
+					if(this.actionsMenu)
+					{
+						this.actionsMenu.destroy();
+						this.actionsMenu = null;
+					}
+				}.bind(this));
 
 				BX.bind(this.actionsMenu.popupWindow.popupContainer, 'click', BX.delegate(function() {
 					var actionsMenu = this.getActionsMenu();
@@ -738,6 +807,11 @@
 		{
 		},
 
+		_onPopupShow: function(popupMenu)
+		{
+			popupMenu.setBindElement(this.getActionsButton());
+		},
+
 		actionsMenuIsShown: function()
 		{
 			return this.getActionsMenu().popupWindow.isShown();
@@ -745,36 +819,31 @@
 
 		showActionsMenu: function(event)
 		{
-			var pos = BX.pos(this.getActionsButton());
-
-			BX.PopupMenu.destroy('main-grid-actions-menu-' + this.getIndex());
-			this.actionsMenu = null;
+			this.getActionsMenu().popupWindow.show();
 
 			if (event)
 			{
 				BX.fireEvent(document.body, 'click');
-				this.getActionsMenu().popupWindow.setOffset({
-					offsetLeft: (event.pageX - pos.left) + 20,
-					offsetTop: (event.pageY - pos.top) - 30
-				});
+
+				this.getActionsMenu().popupWindow.popupContainer.style.top = ((event.pageY - 25) + BX.PopupWindow.getOption("offsetTop")) + "px";
+				this.getActionsMenu().popupWindow.popupContainer.style.left = ((event.pageX + 20) + BX.PopupWindow.getOption("offsetLeft")) + "px";
 			}
 			else
 			{
+				var pos = BX.pos(this.getActionsButton());
+				pos.forceBindPosition = true;
 				this.getActionsMenu().popupWindow.adjustPosition(pos);
 			}
-
-			this.getActionsMenu().popupWindow.show();
 		},
 
 		closeActionsMenu: function()
 		{
-			if(this.actionsMenu)
+			if (this.actionsMenu)
 			{
-				if(this.actionsMenu.popupWindow)
+				if (this.actionsMenu.popupWindow)
 				{
 					this.actionsMenu.popupWindow.close();
 				}
-				this.actionsMenu = null;
 			}
 		},
 

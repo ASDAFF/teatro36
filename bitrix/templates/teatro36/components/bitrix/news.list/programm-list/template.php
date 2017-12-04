@@ -63,18 +63,31 @@ $this->setFrameMode(true);
 					<?foreach($arResult["ITEMS"] as $key => $arItem):?>
 					<li id="rep<?=$key;?>">
 
-						<h1><?=$arItem['NAME']?></h1>
+						<div class="h1"><?=$arItem['NAME']?></div>
 
 						<div class="rep_text">
+							<? if($arItem["PREVIEW_PICTURE"]['SRC']): ?>
 							<div class="rep_img r_i_2" style="background-image: url('<?=$arItem['PREVIEW_PICTURE']['SRC']?>');"></div>
+							<? endif; ?>
+							
 							<?=$arItem['PREVIEW_TEXT'];?>
+						
 							<? foreach($arItem['PROPERTIES']['PRICE']['VALUE'] as $desc => $price): ?>
 							<div class="rep_price">Стоимость: <?=$arItem['PROPERTIES']['PRICE']['DESCRIPTION'][$desc]?><span> <?=$price?> рублей</span></div>
 							<? endforeach?>
 						</div>
+						
+						<? if($arItem["PROPERTIES"]['TIME']['VALUE']): ?>
 						<div class="rep_time">Продолжительность<br />программы:<br />
 							<div class="rep_clock"><span><?=$arItem['PROPERTIES']['TIME']['VALUE']?><br /> минут</span></div>
 						</div>
+						<? endif; ?>
+						
+						<? if($arItem["DETAIL_TEXT"]): ?>
+						<div class="rep_detail">
+							<a href="<?=$arItem['DETAIL_PAGE_URL']?>" class="form_open">Подробнее...</a>
+						</div>
+						<? endif; ?>
 						<div class="clr"></div>
 
 					</li>

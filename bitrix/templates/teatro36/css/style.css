@@ -1221,6 +1221,12 @@ div.owl-next:hover {
   font-size: 28px;
   font-family: VivaldiD CL;
 }
+.rep_detail{
+  float: right;
+  width: 160px;
+  text-align: center;
+  margin-top: 20px;
+}
 .blog {
   margin-top: 150px;
   color: #766d68;

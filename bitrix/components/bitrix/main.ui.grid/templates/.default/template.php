@@ -14,7 +14,7 @@ if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true)
 	die();
 }
 
-CJSCore::Init(array('popup', 'ui'));
+CJSCore::Init(array('popup', 'ui', 'resize_observer'));
 
 \Bitrix\Main\Page\Asset::getInstance()->addJs('/bitrix/js/main/dd.js');
 
@@ -434,6 +434,7 @@ $displayedCount = count(
 		endif; ?><?
 	?></div><?
 ?></form><?
+?><iframe height="0" width="100%" id="main-grid-tmp-frame-<?=$arParams["GRID_ID"]?>" name="main-grid-tmp-frame-<?=$arParams["GRID_ID"]?>" style="position: absolute; z-index: -1; opacity: 0; border: 0;"></iframe><?
 ?></div>
 
 <?
@@ -441,7 +442,7 @@ $request = \Bitrix\Main\Context::getCurrent()->getRequest();
 if (\Bitrix\Main\Grid\Context::isInternalRequest()) :
 ?><script>
 	(function() {
-		var action = '<?=$request->get("grid_action")?>';
+		var action = '<?=\CUtil::JSEscape($request->get("grid_action"))?>';
 		var editableData = eval(<?=CUtil::phpToJSObject($arResult["DATA_FOR_EDIT"])?>);
 		var defaultColumns = eval(<?=CUtil::phpToJSObject($arResult["DEFAULT_COLUMNS"])?>);
 		var Grid = BX.Main.gridManager.getById('<?=$arParams["GRID_ID"]?>');

@@ -28,8 +28,13 @@ RewriteRule ^(.*)$ http://teatro36.ru/$1 [R=301,L]
 RewriteBase /
 RewriteRule (.*)\.html$ $1 [R=301,L]
 
-RewriteCond %{THE_REQUEST} ^[A-Z]{3,9}\ /index\.php\ HTTP/
-RewriteRule ^index\.php$ http://teatro36.ru [R=301,L]
+#убрать //
+RewriteCond %{REQUEST_URI} ^(.*)/{2,}(.*)$
+RewriteRule (.*) %1/%2 [R=301,L] 
+
+# Убрать index.html index.php
+RewriteCond %{THE_REQUEST} ^[A-Z]{3,9}\ /.*index\.(html|php)?\ HTTP/
+RewriteRule ^(.*)index\.(html|php)?$ http://teatro36.ru/$1 [R=301,L]
   
 <IfModule mod_rewrite.c>
   Options +FollowSymLinks

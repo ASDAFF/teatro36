@@ -260,7 +260,7 @@ class CAdminList
 			return false;
 
 		//AddMessage2Log("GroupAction = ".$_REQUEST['action']." & ".($this->bCanBeEdited?'bCanBeEdited':'ne'));
-		if($_REQUEST['action_button']=="edit")
+		if($_REQUEST['action']=="edit")
 		{
 			if(isset($_REQUEST['ID']))
 			{
@@ -1199,15 +1199,15 @@ class CAdminListRow
 				{
 					if($action["DEFAULT"] == true)
 					{
-						$sDefAction = $action["ACTION"]
-							? htmlspecialcharsbx($action["ACTION"])
-							: "BX.adminPanel.Redirect([], '".CUtil::JSEscape($action["LINK"])."', event)"
-						;
-						$sDefTitle = (!empty($action["TITLE"])? $action["TITLE"]:$action["TEXT"]);
+						$sDefAction = ($action["ACTION"]? $action["ACTION"] : "BX.adminPanel.Redirect([], '".CUtil::JSEscape($action["LINK"])."', event)");
+						$sDefTitle = (!empty($action["TITLE"])? $action["TITLE"] : $action["TEXT"]);
 						break;
 					}
 				}
 			}
+
+			$sDefAction = htmlspecialcharsbx($sDefAction, ENT_COMPAT, false);
+			$sDefTitle = htmlspecialcharsbx($sDefTitle, ENT_COMPAT, false);
 		}
 
 		$sMenuItems = "";

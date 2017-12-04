@@ -290,8 +290,19 @@ do{ //one iteration loop
 			"TITLE" => GetMessage("IBEL_E_TAB_RIGHTS_TITLE"),
 		);
 
-	$bCustomForm = 	(strlen($arIBlock["EDIT_FILE_AFTER"])>0 && is_file($_SERVER["DOCUMENT_ROOT"].$arIBlock["EDIT_FILE_AFTER"]))
-		|| (strlen($arIBTYPE["EDIT_FILE_AFTER"])>0 && is_file($_SERVER["DOCUMENT_ROOT"].$arIBTYPE["EDIT_FILE_AFTER"]));
+	$arIBlock["EDIT_FILE_AFTER"] = (string)$arIBlock["EDIT_FILE_AFTER"];
+	$arIBTYPE["EDIT_FILE_AFTER"] = (string)$arIBTYPE["EDIT_FILE_AFTER"];
+	$bCustomForm = (
+			$arIBlock["EDIT_FILE_AFTER"] != ''
+			&& (substr($arIBlock["EDIT_FILE_AFTER"], -4) == '.php')
+			&& is_file($_SERVER["DOCUMENT_ROOT"].$arIBlock["EDIT_FILE_AFTER"])
+		)
+		||
+		(
+			$arIBTYPE["EDIT_FILE_AFTER"] != ''
+			&& (substr($arIBTYPE["EDIT_FILE_AFTER"], -4) == '.php')
+			&& is_file($_SERVER["DOCUMENT_ROOT"].$arIBTYPE["EDIT_FILE_AFTER"])
+		);
 
 	$arPostParams = array(
 		'bxpublic' => 'Y'
@@ -499,6 +510,10 @@ do{ //one iteration loop
 				);
 			}
 		}
+		else
+		{
+			$PROP[$k1] = array();
+		}
 	}
 
 	$DESCRIPTION_PROP = $_POST["DESCRIPTION_PROP"];
@@ -578,11 +593,21 @@ do{ //one iteration loop
 		}
 	}
 
-	if(strlen($arIBlock["EDIT_FILE_BEFORE"])>0 && is_file($_SERVER["DOCUMENT_ROOT"].$arIBlock["EDIT_FILE_BEFORE"]))
+	$arIBlock["EDIT_FILE_BEFORE"] = (string)$arIBlock["EDIT_FILE_BEFORE"];
+	$arIBTYPE["EDIT_FILE_BEFORE"] = (string)$arIBTYPE["EDIT_FILE_BEFORE"];
+	if (
+		$arIBlock["EDIT_FILE_BEFORE"] != ''
+		&& (substr($arIBlock["EDIT_FILE_BEFORE"], -4) == '.php')
+		&& is_file($_SERVER["DOCUMENT_ROOT"].$arIBlock["EDIT_FILE_BEFORE"])
+	)
 	{
 		include($_SERVER["DOCUMENT_ROOT"].$arIBlock["EDIT_FILE_BEFORE"]);
 	}
-	elseif(strlen($arIBTYPE["EDIT_FILE_BEFORE"])>0 && is_file($_SERVER["DOCUMENT_ROOT"].$arIBTYPE["EDIT_FILE_BEFORE"]))
+	elseif (
+		$arIBTYPE["EDIT_FILE_BEFORE"] != ''
+		&& (substr($arIBTYPE["EDIT_FILE_BEFORE"], -4) == '.php')
+		&& is_file($_SERVER["DOCUMENT_ROOT"].$arIBTYPE["EDIT_FILE_BEFORE"])
+	)
 	{
 		include($_SERVER["DOCUMENT_ROOT"].$arIBTYPE["EDIT_FILE_BEFORE"]);
 	}
@@ -742,7 +767,7 @@ do{ //one iteration loop
 
 				$textIndex = ($bSubCopy ? $copyID : $ID);
 				$arFields = array(
-					"ACTIVE" => $_POST["SUB_ACTIVE"],
+					"ACTIVE" => (isset($_POST["SUB_ACTIVE"]) ? $_POST["SUB_ACTIVE"] : 'N'),
 					"MODIFIED_BY" => $USER->GetID(),
 					"IBLOCK_ID" => $IBLOCK_ID,
 					"ACTIVE_FROM" => $_POST["SUB_ACTIVE_FROM"],
@@ -1048,10 +1073,10 @@ else
 
 	if($bVarsFromForm)
 	{
-		if(!isset($ACTIVE)) $ACTIVE = "N"; //It is checkbox. So it is not set in POST.
 		$DB->InitTableVarsForEdit("b_iblock_element", "", "str_");
 	}
 
+	$db_prop_values = false; //it is a db cache
 	$arPROP_tmp = array();
 	$properties = CIBlockProperty::GetList(
 		array("SORT"=>"ASC", "NAME"=>"ASC", "ID" => "ASC"),
@@ -1061,54 +1086,68 @@ else
 	{
 		$prop_values = array();
 		$prop_values_with_descr = array();
-		if($bVarsFromForm)
+		if ($bVarsFromForm && $prop_fields["PROPERTY_TYPE"] == Iblock\PropertyTable::TYPE_FILE)
 		{
-			if($prop_fields["PROPERTY_TYPE"]=="F")
+			if ($db_prop_values === false)
 			{
-				$db_prop_values = CIBlockElement::GetProperty($IBLOCK_ID, $WF_ID, "id", "asc", array("ID"=>$prop_fields["ID"], "EMPTY"=>"N"));
-				while($res = $db_prop_values->Fetch())
+				$db_prop_values = array();
+				$rs_prop_values = CIBlockElement::GetProperty($IBLOCK_ID, $WF_ID, "id", "asc", array("EMPTY" => "N"));
+				while ($res = $rs_prop_values->Fetch())
 				{
-					$prop_values[$res["PROPERTY_VALUE_ID"]] = $res["VALUE"];
-					$prop_values_with_descr[$res["PROPERTY_VALUE_ID"]] = array("VALUE"=>$res["VALUE"],"DESCRIPTION"=>$res["DESCRIPTION"]);
+					$db_prop_values[$res["ID"]][] = $res;
 				}
 			}
-			elseif(is_array($PROP))
+			if (isset($db_prop_values[$prop_fields["ID"]]))
 			{
-				if(array_key_exists($prop_fields["ID"], $PROP))
-					$prop_values = $PROP[$prop_fields["ID"]];
-				else
-					$prop_values = $PROP[$prop_fields["CODE"]];
-				$prop_values_with_descr = $prop_values;
+				foreach ($db_prop_values[$prop_fields["ID"]] as $res)
+				{
+					$prop_values[$res["PROPERTY_VALUE_ID"]] = $res["VALUE"];
+					$prop_values_with_descr[$res["PROPERTY_VALUE_ID"]] = array("VALUE" => $res["VALUE"], "DESCRIPTION" => $res["DESCRIPTION"]);
+				}
+			}
+		}
+		elseif ($bVarsFromForm && is_array($PROP))
+		{
+			if (array_key_exists($prop_fields["ID"], $PROP))
+				$prop_values = $PROP[$prop_fields["ID"]];
+			else
+				$prop_values = $PROP[$prop_fields["CODE"]];
+			$prop_values_with_descr = $prop_values;
+		}
+		elseif ($bVarsFromForm)
+		{
+			$prop_values = "";
+			$prop_values_with_descr = $prop_values;
+		}
+		elseif ($historyId > 0)
+		{
+			$vx = $arResult["DOCUMENT"]["PROPERTIES"][(strlen(trim($prop_fields["CODE"])) > 0) ? $prop_fields["CODE"] : $prop_fields["ID"]];
+
+			$prop_values = array();
+			if (is_array($vx["VALUE"]) && is_array($vx["DESCRIPTION"]))
+			{
+				for ($i = 0, $cnt = count($vx["VALUE"]); $i < $cnt; $i++)
+					$prop_values[] = array("VALUE" => $vx["VALUE"][$i], "DESCRIPTION" => $vx["DESCRIPTION"][$i]);
 			}
 			else
 			{
-				$prop_values = "";
-				$prop_values_with_descr = $prop_values;
+				$prop_values[] = array("VALUE" => $vx["VALUE"], "DESCRIPTION" => $vx["DESCRIPTION"]);
 			}
+
+			$prop_values_with_descr = $prop_values;
 		}
-		else
+		elseif($ID>0)
 		{
-			if ($historyId > 0)
+			if ($db_prop_values === false)
 			{
-				$vx = $arResult["DOCUMENT"]["PROPERTIES"][(strlen(trim($prop_fields["CODE"])) > 0) ? $prop_fields["CODE"] : $prop_fields["ID"]];
-
-				$prop_values = array();
-				if (is_array($vx["VALUE"]) && is_array($vx["DESCRIPTION"]))
-				{
-					for ($i = 0, $cnt = count($vx["VALUE"]); $i < $cnt; $i++)
-						$prop_values[] = array("VALUE" => $vx["VALUE"][$i], "DESCRIPTION" => $vx["DESCRIPTION"][$i]);
-				}
-				else
-				{
-					$prop_values[] = array("VALUE" => $vx["VALUE"], "DESCRIPTION" => $vx["DESCRIPTION"]);
-				}
-
-				$prop_values_with_descr = $prop_values;
+				$db_prop_values = array();
+				$rs_prop_values = CIBlockElement::GetProperty($IBLOCK_ID, $WF_ID, "id", "asc", array("EMPTY"=>"N"));
+				while ($res = $rs_prop_values->Fetch())
+					$db_prop_values[$res["ID"]][] = $res;
 			}
-			elseif($ID>0)
+			if (isset($db_prop_values[$prop_fields["ID"]]))
 			{
-				$db_prop_values = CIBlockElement::GetProperty($IBLOCK_ID, $WF_ID, "id", "asc", array("ID"=>$prop_fields["ID"], "EMPTY"=>"N"));
-				while($res = $db_prop_values->Fetch())
+				foreach ($db_prop_values[$prop_fields["ID"]] as $res)
 				{
 					if($res["WITH_DESCRIPTION"]=="Y")
 						$prop_values[$res["PROPERTY_VALUE_ID"]] = array("VALUE"=>$res["VALUE"], "DESCRIPTION"=>$res["DESCRIPTION"]);

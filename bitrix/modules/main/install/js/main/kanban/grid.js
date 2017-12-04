@@ -66,7 +66,8 @@ BX.Kanban.Grid = function(options)
 	this.items = Object.create(null);
 
 	this.data = BX.type.isPlainObject(options.data) ? options.data : Object.create(null);
-	this.bgColor = BX.Kanban.Utils.isValidColor(options.bgColor) ? options.bgColor : "ffffff";
+	this.bgColor =
+		BX.Kanban.Utils.isValidColor(options.bgColor) || options.bgColor === "transparent" ? options.bgColor : "ffffff";
 
 	this.earTimer = null;
 	this.dragMode = BX.Kanban.DragMode.NONE;
@@ -140,7 +141,7 @@ BX.Kanban.Grid.prototype =
 
 		var columnType = this.getColumnType(options.type);
 		var column = new columnType(options);
-		if (! column instanceof BX.Kanban.Column)
+		if (!(column instanceof BX.Kanban.Column))
 		{
 			throw new Error("Column type must be an instance of BX.Kanban.Column");
 		}
@@ -260,7 +261,7 @@ BX.Kanban.Grid.prototype =
 
 		var itemType = this.getItemType(options.type);
 		var item = new itemType(options);
-		if (! item instanceof BX.Kanban.Item)
+		if (!(item instanceof BX.Kanban.Item))
 		{
 			throw new Error("Item type must be an instance of BX.Kanban.Item");
 		}
@@ -292,6 +293,7 @@ BX.Kanban.Grid.prototype =
 			var column = item.getColumn();
 			delete this.items[item.getId()];
 			column.removeItem(item);
+			item.dispose();
 		}
 
 		return item;
@@ -523,6 +525,11 @@ BX.Kanban.Grid.prototype =
 	getBgColor: function()
 	{
 		return this.bgColor;
+	},
+
+	getBgColorStyle: function()
+	{
+		return this.getBgColor() === "transparent" ? this.getBgColor() : "#" + this.getBgColor();
 	},
 
 	/**
@@ -766,7 +773,7 @@ BX.Kanban.Grid.prototype =
 				className: "main-kanban"
 			},
 			style: {
-				backgroundColor: "#" + this.getBgColor()
+				backgroundColor: this.getBgColorStyle()
 			}
 		});
 
@@ -789,7 +796,7 @@ BX.Kanban.Grid.prototype =
 				className: "main-kanban-inner"
 			},
 			style: {
-				backgroundColor: "#" + this.getBgColor()
+				backgroundColor: this.getBgColorStyle()
 			}
 		});
 
@@ -912,6 +919,11 @@ BX.Kanban.Grid.prototype =
 			var height = document.documentElement.clientHeight - innerContainer.getBoundingClientRect().top;
 			innerContainer.style.height = height + "px";
 
+			if (innerContainer.classList.contains("main-kanban-fixed"))
+			{
+				BX.onCustomEvent(this, "Kanban.Grid:onFixedModeEnd", [this]);
+			}
+
 			outerContainer.style.minHeight = document.documentElement.clientHeight + "px";
 			innerContainer.style.removeProperty("top");
 			innerContainer.style.removeProperty("left");
@@ -920,9 +932,12 @@ BX.Kanban.Grid.prototype =
 		}
 		else
 		{
-			var rectArea = this.renderTo.getBoundingClientRect();
+			if (!innerContainer.classList.contains("main-kanban-fixed"))
+			{
+				BX.onCustomEvent(this, "Kanban.Grid:onFixedModeStart", [this]);
+			}
 
-			innerContainer.classList.contains("main-kanban-fixed");
+			var rectArea = this.renderTo.getBoundingClientRect();
 			innerContainer.style.left = rectArea.left + "px";
 			innerContainer.style.width = rectArea.width + "px";
 			innerContainer.style.removeProperty("height");

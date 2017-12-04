@@ -41,6 +41,7 @@ $this->setFrameMode(true);
 						</div>
 						<? endforeach; ?>
 
+						<? if($arResult['DETAIL_TEXT']): ?>
 						<div class="d_product r4">
 							<div class="d_svet"></div>
 							<div class="ramka4">
@@ -49,6 +50,8 @@ $this->setFrameMode(true);
 								</div>
 							</div>
 						</div>
+						<? endif; ?>
+						
 					</div>
 			</div>
 

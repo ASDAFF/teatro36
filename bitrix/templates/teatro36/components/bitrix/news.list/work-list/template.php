@@ -19,7 +19,7 @@ $this->setFrameMode(true);
 		</div>
 		<div class="scrollcontent scrollbar-inner1">
 			<div class="item-page scrollbar style-3">
-				<?=$arResult['TEXT']?>
+				<?=$arResult['DESCRIPTION']?>
 				<br>
 				<ul class="tr-listitem">
 					<?foreach($arResult["ITEMS"] as $key => $arItem):?>

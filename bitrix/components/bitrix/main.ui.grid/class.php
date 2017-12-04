@@ -1059,8 +1059,6 @@ class CMainUIGrid extends CBitrixComponent
 
 	protected function compatibleActions($actions, &$row)
 	{
-		$row["default_action"] = array();
-
 		foreach ($actions as $key => $action)
 		{
 			if (isset($action["SEPARATOR"]))
@@ -1112,10 +1110,37 @@ class CMainUIGrid extends CBitrixComponent
 				unset($actions[$key]["MENU"]);
 			}
 
-			if ($actions[$key]["default"] === true)
+			if (isset($action["HREF"]))
 			{
-				$row["default_action"]["js"] = $action["onclick"];
-				$row["default_action"]["title"] = $action["text"];
+				$actions[$key]["href"] = $action["HREF"];
+				unset($actions[$key]["HREF"]);
+			}
+
+			if (isset($row["default_action"]) && is_array($row["default_action"]))
+			{
+				if (isset($row["default_action"]["href"]) && is_string($row["default_action"]["href"]))
+				{
+					$row["default_action"]["js"] = "(window.location = '".$row["default_action"]["href"]."')";
+				}
+			}
+			else
+			{
+				if ($action["default"] === true)
+				{
+					$row["default_action"] = array();
+
+					if (isset($action["onclick"]) && is_string($action["onclick"]))
+					{
+						$row["default_action"]["js"] = $action["onclick"];
+					}
+
+					if (isset($action["href"]) && is_string($action["href"]))
+					{
+						$row["default_action"]["js"] = "(window.location = '".$action["href"]."')";
+					}
+
+					$row["default_action"]["title"] = isset($action["text"]) ? $action["text"] : "";
+				}
 			}
 		}
 
@@ -1440,19 +1465,7 @@ class CMainUIGrid extends CBitrixComponent
 	 */
 	protected function prepareAlign($headerItem)
 	{
-		switch ($headerItem["type"])
-		{
-			case Grid\Types::GRID_CHECKBOX:
-				$align = "center";
-				break;
-			case Grid\Types::GRID_INT:
-				$align = "left";
-				break;
-			default:
-				$align = "left";
-		}
-
-		return $align;
+		return "left";
 	}
 
 
@@ -1624,7 +1637,7 @@ class CMainUIGrid extends CBitrixComponent
 				{
 					$typeName = Grid\Editor\Types::TEXT;
 				}
-				elseif($columnTypeName === "int")
+				elseif($columnTypeName === "int" || $columnTypeName === "double" || $columnTypeName === "number")
 				{
 					$typeName = Grid\Editor\Types::NUMBER;
 				}
@@ -1831,17 +1844,6 @@ class CMainUIGrid extends CBitrixComponent
 		$options = $this->getCurrentOptions();
 		$gridOptions = $this->getGridOptions();
 		$isNeedSave = false;
-
-		if (!isset($options["columns"]) ||
-			empty($options["columns"]) ||
-			!is_string($options["columns"]))
-		{
-			$columns = $this->prepareColumns();
-			$columnsIds = array_keys($columns);
-			$columnsString = implode(",", $columnsIds);
-			$gridOptions->SetColumns($columnsString);
-			$isNeedSave = true;
-		}
 
 		if (!isset($options["columns_sizes"]) ||
 			empty($options["columns_sizes"]) ||

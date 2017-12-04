@@ -1,5 +1,6 @@
 <?
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
+$APPLICATION->SetPageProperty("title", "Спецпредложения | Салон «Teatro»");
 $APPLICATION->SetTitle("offers");
 ?>
 
@@ -103,7 +104,27 @@ $APPLICATION->SetTitle("offers");
 
 
 
+<div style="display:none">
+    <div id="a_special" class="modal">
+        <div class="modal_wrap">
+            <div class="modal_text">
+                <div class="scrollbar-inner">
+                    <div class="mod_pad">
 
+                        <?
+                        $APPLICATION->IncludeFile("/include/a_special.php", Array(), Array(
+                            "MODE"      => "html",                                           // будет редактировать в веб-редакторе
+                            "NAME"      => "Редактирование включаемой области раздела",      // текст всплывающей подсказки на иконке
+                            "TEMPLATE"  => ""                    // имя шаблона для нового файла
+                        ));
+                        ?>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 
 
 <?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>

@@ -51,7 +51,7 @@ ob_start();
 				?>
 			<!--/noindex-->
 			<div class="feed-com-informers">
-				<span class="feed-comment-time-wrap"><span class="feed-time"><a href="#VIEW_URL##com#ID#">#DATE#</a></span></span>
+				<span class="feed-comment-time-wrap"><span class="feed-time"><a href="#VIEW_URL##com#ID#" rel="nofollow">#DATE#</a></span></span>
 				#BEFORE_ACTIONS#
 				<?if ( $arParams["SHOW_POST_FORM"] == "Y" )
 				{
@@ -85,7 +85,7 @@ ob_start();
 			#AFTER_HEADER#
 			#BEFORE#
 			<div class="feed-com-text">
-				<div class="feed-com-text-inner">
+				<div class="feed-com-text-inner" bx-content-view-xml-id="#CONTENT_ID#" id="feed-com-text-inner-#CONTENT_ID#" bx-content-view-save="N">
 					<div class="feed-com-text-inner-inner" id="record-#FULL_ID#-text">
 						<div>#TEXT#</div>
 					</div>

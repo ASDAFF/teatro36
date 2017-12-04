@@ -33,8 +33,25 @@
 			BX.bind(this.getInput(), 'keydown', BX.delegate(this._onKeyDown, this));
 			BX.bind(this.getFindButton(), 'click', BX.delegate(this._onSearchClick, this));
 			BX.bind(this.getContainer(), 'click', BX.delegate(this._onSearchContainerClick, this));
+			this.removeAutofocus();
 			this.firstInit = true;
 		},
+
+
+		/**
+		 * Removes autofocus attr from search input
+		 */
+		removeAutofocus: function()
+		{
+			var input = this.getInput();
+
+			if (!!input)
+			{
+				input.blur();
+				input.autofocus = null;
+			}
+		},
+
 
 		getFindButton: function()
 		{
@@ -78,7 +95,8 @@
 
 		isSquaresSelected: function()
 		{
-			return this.getSquares().every(this.isSquareSelected, this);
+			var squares = this.getSquares();
+			return squares.length && squares.every(this.isSquareSelected, this);
 		},
 
 		isSquareSelected: function(square)
@@ -99,7 +117,7 @@
 			var selectionStart = searchInput.selectionStart;
 			var selectionEnd = searchInput.selectionEnd;
 
-			return selectionStart === 0 && selectionEnd === searchStringLength;
+			return selectionStart === 0 && selectionEnd !== 0 && selectionEnd === searchStringLength;
 		},
 
 		isSelectionStart: function()
@@ -126,17 +144,24 @@
 			return !!node && BX.hasClass(node, this.parent.settings.classSearchButton);
 		},
 
+
+		/**
+		 * Adjust focus on search input
+		 */
 		adjustFocus: function()
 		{
-			var searchInput = this.getInput();
-
-			if (document.activeElement !== searchInput && window.scrollY < BX.pos(searchInput).top)
+			if (!BX.browser.IsMobile())
 			{
-				//Puts cursor after last character
-				//noinspection SillyAssignmentJS
-				searchInput.value = searchInput.value;
-				searchInput.blur();
-				searchInput.focus();
+				var searchInput = this.getInput();
+
+				if (document.activeElement !== searchInput && window.scrollY < BX.pos(searchInput).top)
+				{
+					//Puts cursor after last character
+					//noinspection SillyAssignmentJS
+					searchInput.value = searchInput.value;
+					searchInput.blur();
+					searchInput.focus();
+				}
 			}
 		},
 
@@ -171,23 +196,40 @@
 			var currentPresetId = Preset.getCurrentPresetId();
 			var isResetToDefaultMode = Filter.getParam('RESET_TO_DEFAULT_MODE');
 			var isPinned = Preset.isPinned(currentPresetId);
+			var squares = this.getSquares();
 
-			if ((isResetToDefaultMode && isPinned) || !isResetToDefaultMode)
+			if (squares.length === 1)
 			{
-				var resetWithoutSearch = true;
-				this.lastPromise = Filter.resetFilter(resetWithoutSearch);
-				Filter.closePopup();
+				if ((isResetToDefaultMode && isPinned) || !isResetToDefaultMode)
+				{
+					var resetWithoutSearch = true;
+					this.lastPromise = Filter.resetFilter(resetWithoutSearch);
+					Filter.closePopup();
+				}
+
+				if (isResetToDefaultMode && !isPinned)
+				{
+					this.lastPromise = Filter.getPreset().applyPinnedPreset();
+				}
 			}
 
-			if (isResetToDefaultMode && !isPinned)
+			if (squares.length > 1)
 			{
-				this.lastPromise = Filter.getPreset().applyPinnedPreset();
+				var currentPreset = Preset.getPreset(Preset.getCurrentPresetId());
+				var tmpPreset = Preset.getPreset('tmp_filter');
+
+				tmpPreset.FIELDS = BX.clone(currentPreset.ADDITIONAL);
+				currentPreset.ADDITIONAL = [];
+				Preset.deactivateAllPresets();
+				Preset.applyPreset('tmp_filter');
+				Filter.applyFilter();
 			}
 		},
 
 		onControlSquareRemove: function(square)
 		{
 			var Filter = this.parent;
+			var Preset = Filter.getPreset();
 			var isResetToDefaultMode = Filter.getParam('RESET_TO_DEFAULT_MODE');
 
 			if (isResetToDefaultMode && this.getSquares().length === 1)
@@ -199,6 +241,19 @@
 				var squareData = this.getSquareData(square);
 				Filter.clearControls(squareData);
 				Filter.closePopup();
+
+				if (BX.type.isArray(squareData))
+				{
+					squareData.forEach(function(square) {
+						Preset.removeAdditionalField(square.name);
+					});
+				}
+
+				if (BX.type.isPlainObject(squareData))
+				{
+					Preset.removeAdditionalField(squareData.name);
+				}
+
 				this.apply();
 			}
 		},

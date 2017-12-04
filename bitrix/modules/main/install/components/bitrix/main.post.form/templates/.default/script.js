@@ -465,7 +465,8 @@ diskController.prototype = {
 					isImage : false,
 					place : BX(result.place, true),
 					xmlID : BX(result.place, true).getAttribute("bx-attach-xml-id"),
-					fileID : BX(result.place, true).getAttribute("bx-attach-file-id")
+					fileID : BX(result.place, true).getAttribute("bx-attach-file-id"),
+					fileType: BX(result.place, true).getAttribute("bx-attach-file-type")
 				},
 				preview;
 			if (/(\.png|\.jpg|\.jpeg|\.gif|\.bmp)$/i.test(result.element_name) &&
@@ -876,6 +877,10 @@ fileController.prototype.checkFile = function(id, result, param)
 		{
 			return false;
 		}
+		if(BX(data.place, true).getAttribute("bx-attach-file-type"))
+		{
+			data.fileType = BX(data.place, true).getAttribute("bx-attach-file-type");
+		}
 
 		this.values[id] = data;
 	}
@@ -1028,6 +1033,15 @@ LHEPostForm.prototype = {
 				regexp : /\[(IMG ID)=((?:\s|\S)*?)(?:\s*?WIDTH=(\d+)\s*?HEIGHT=(\d+))?\]/ig,
 				code : '[IMG ID=#ID##ADDITIONAL#]',
 				wysiwyg : '<img id="#ID#" src="' + '#SRC#" lowsrc="' + '#LOWSRC#" title=""#ADDITIONAL# />'
+			},
+			player : {
+				exist : false,
+				bxTag : 'player',
+				tag : "FILE ID",
+				tags : ["FILE ID"],
+				regexp : /\[(FILE ID)=((?:\s|\S)*?)?\]/ig,
+				code : '[FILE ID=#ID##ADDITIONAL#]',
+				wysiwyg : '<img class="bxhtmled-player-surrogate" id="#ID#" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" contenteditable="false" title=""#ADDITIONAL# />'
 			}
 		};
 		var parsers = (params["parsers"] ? params["parsers"] : {});
@@ -1253,7 +1267,7 @@ LHEPostForm.prototype = {
 			var cid;
 			for (var ii = 0; ii < this.arFiles[parser + file].length; ii++)
 			{
-				this.monitoring.files.push(parser + file);
+				//this.monitoring.files.push([parser, file].join('/'));
 				cid = this.arFiles[parser + file][ii];
 				BX.onCustomEvent(this.controllers[cid], "onFileIsInText", [file, inText]);
 			}
@@ -1341,7 +1355,7 @@ LHEPostForm.prototype = {
 			var editorMode = editor.GetViewMode(),
 				res = this.getFileToInsert(file, controller);
 
-			if(editorMode == 'wysiwyg') // WYSIWYG
+			if (editorMode == 'wysiwyg') // WYSIWYG
 			{
 				editor.InsertHtml(res.replacement);
 				setTimeout(BX.delegate(editor.AutoResizeSceleton, editor), 500);
@@ -1367,6 +1381,10 @@ LHEPostForm.prototype = {
 				editorMode = editor.GetViewMode(),
 				pattern = this.parser[parser.bxTag][editorMode];
 
+			if (file['fileType'] && this.parser[file['fileType']] && editorMode == "wysiwyg")
+			{
+				pattern = this.parser[file['fileType']][editorMode];
+			}
 			if (file['isImage'])
 			{
 				pattern = (editorMode == "wysiwyg" ? this.parser["postimage"][editorMode] : pattern);
@@ -1375,7 +1393,7 @@ LHEPostForm.prototype = {
 					params = ' style="width:' + file.width + 'px;height:' + file.height + 'px;" onload="this.style.width=\'auto\';this.style.height=\'auto\';"';
 				}
 			}
-			if(editorMode == 'wysiwyg') // WYSIWYG
+			if (editorMode == 'wysiwyg') // WYSIWYG
 			{
 				pattern = pattern.
 					replace("#ID#", editor.SetBxTag(false, {'tag': parser.bxTag, params: {'value' : fileID}})).
@@ -1501,6 +1519,11 @@ LHEPostForm.prototype = {
 							strAdditional = "",
 							template = (file.isImage ? obj.parser.postimage.wysiwyg : arParser.wysiwyg);
 						obj.monitoringStart();
+
+						if (file.fileType && obj.parser[file.fileType] && obj.parser[file.fileType].wysiwyg)
+						{
+							template = obj.parser[file.fileType].wysiwyg;
+						}
 
 						if (file.isImage)
 						{
@@ -1655,9 +1678,12 @@ LHEPostForm.prototype = {
 
 	OnButtonClick : function(type)
 	{
-		if(type != 'cancel')
+		if(type !== 'cancel')
 		{
-			BX.onCustomEvent(this.eventNode, 'OnClickSubmit', [this]);
+			var res = {result : true};
+			BX.onCustomEvent(this.eventNode, 'OnClickBeforeSubmit', [this, res]);
+			if (res["result"] !== false)
+				BX.onCustomEvent(this.eventNode, 'OnClickSubmit', [this]);
 		}
 		else
 		{
@@ -1930,6 +1956,20 @@ LHEPostForm.prototype = {
 		}, this));
 		BX.addCustomEvent(BX(this.formID), 'onAutoSaveRestore', BX.proxy(function(ob, form_data)
 		{
+			if (repo.handler[editor.id])
+			{
+				for (var ii in repo.handler[editor.id].controllers)
+				{
+					if (repo.handler[editor.id].controllers.hasOwnProperty(ii) &&
+						repo.handler[editor.id].controllers[ii].handler &&
+						repo.handler[editor.id].controllers[ii].handler.params &&
+						repo.handler[editor.id].controllers[ii].handler.params.controlName &&
+						repo.handler[editor.id].controllers[ii].handler.params.controlName)
+					{
+						delete form_data[repo.handler[editor.id].controllers[ii].handler.params.controlName];
+					}
+				}
+			}
 			if (form_data['text' + this.formID] && /[^\s]+/gi.test(form_data['text' + this.formID]))
 			{
 				editor.CheckAndReInit(form_data['text' + this.formID]);
@@ -2402,9 +2442,17 @@ window.onKeyDownHandler = function(e, editor, formID)
 	if (!window['BXfpdStopMent' + formID])
 		return true;
 
-	if (keyCode == 107 ||
-		((e.shiftKey || e.modifiers > 3) && BX.util.in_array(keyCode, [187, 50, 107, 43, 61])) ||
-		(e.altKey && BX.util.in_array(keyCode, [76])) /* German @ == Alt + L*/)
+	if (
+		keyCode == 107
+		|| (
+			(e.shiftKey || e.modifiers > 3)
+			&& BX.util.in_array(keyCode, [187, 50, 107, 43, 61])
+		)
+		|| (
+			e.altKey
+			&& BX.util.in_array(keyCode, [76])
+		) /* German @ == Alt + L*/
+	)
 	{
 		setTimeout(function()
 		{
@@ -2893,21 +2941,28 @@ window.MPFMentionInit = function(formId, params)
 			allowSearchCrmEmailUsers: (typeof params["allowSearchCrmEmailUsers"] != 'undefined' ? !!params["allowSearchCrmEmailUsers"] : false),
 			userNameTemplate: (typeof params["userNameTemplate"] != 'undefined' ? params["userNameTemplate"] : ''),
 			allowSonetGroupsAjaxSearch: (typeof params["allowSonetGroupsAjaxSearch"] != 'undefined' ? params["allowSonetGroupsAjaxSearch"] : false),
-			allowSonetGroupsAjaxSearchFeatures: (typeof params["allowSonetGroupsAjaxSearchFeatures"] != 'undefined' ? params["allowSonetGroupsAjaxSearchFeatures"] : {})
+			allowSonetGroupsAjaxSearchFeatures: (typeof params["allowSonetGroupsAjaxSearchFeatures"] != 'undefined' ? params["allowSonetGroupsAjaxSearchFeatures"] : {}),
+			showVacations: true,
+			usersVacation : (typeof params["usersVacation"] != 'undefined' ? params["usersVacation"] : {})
 		});
 		BX.bind(BX('feed-add-post-destination-input'), 'keyup', BX.delegate(BX.SocNetLogDestination.BXfpSearch, {
 			formName: window.BXSocNetLogDestinationFormName,
 			inputName: 'feed-add-post-destination-input',
 			tagInputName: 'bx-destination-tag'
 		}));
-		BX.bind(BX('feed-add-post-destination-input'), 'paste', BX.delegate(BX.SocNetLogDestination.BXfpSearch, {
+		BX.bind(BX('feed-add-post-destination-input'), 'paste', BX.defer(BX.SocNetLogDestination.BXfpSearch, {
 			formName: window.BXSocNetLogDestinationFormName,
 			inputName: 'feed-add-post-destination-input',
-			tagInputName: 'bx-destination-tag'
+			tagInputName: 'bx-destination-tag',
+			onPasteEvent: true
 		}));
 		BX.bind(BX('feed-add-post-destination-input'), 'keydown', BX.delegate(BX.SocNetLogDestination.BXfpSearchBefore, {
 			formName: window.BXSocNetLogDestinationFormName,
 			inputName: 'feed-add-post-destination-input'
+		}));
+		BX.bind(BX('feed-add-post-destination-input'), 'blur', BX.delegate(BX.SocNetLogDestination.BXfpBlurInput, {
+			inputBoxName: 'feed-add-post-destination-input-box',
+			tagInputName: 'bx-destination-tag'
 		}));
 		BX.bind(BX('bx-destination-tag'), 'focus', function(e) {
 			BX.SocNetLogDestination.openDialog(
@@ -2934,7 +2989,13 @@ window.MPFMentionInit = function(formId, params)
 					sender.blockFocus = true;
 				}
 			});
-			BX.SocNetLogDestination.selectItem(window.BXSocNetLogDestinationFormName, null, null, item.id, 'users', false);
+			if (
+				typeof (BX.SocNetLogDestination.obItemsSelected[window.BXSocNetLogDestinationFormName][item.id]) == 'undefined'
+				|| !BX.SocNetLogDestination.obItemsSelected[window.BXSocNetLogDestinationFormName][item.id]
+			)
+			{
+				BX.SocNetLogDestination.selectItem(window.BXSocNetLogDestinationFormName, null, null, item.id, 'users', false);
+			}
 		});
 
 		if (params["itemsHidden"])
@@ -3027,7 +3088,10 @@ window.MPFMentionInit = function(formId, params)
 	window["BXSocNetLogDestinationDisableBackspace"] = null;
 	var bxBMent = BX('bx-b-mention-' + formId);
 
-	if (typeof params["items"]["extranetRoot"] != 'undefined')
+	if (
+		!params.extranetUser
+		&& typeof params.items.extranetRoot != 'undefined'
+	)
 	{
 		params["items"]["departmentExtranet"] = BX.clone(params["items"]["department"]);
 		for(var key in params["items"]["extranetRoot"])
@@ -3043,7 +3107,7 @@ window.MPFMentionInit = function(formId, params)
 	BX.SocNetLogDestination.init({
 		name : window["BXSocNetLogDestinationFormNameMent" + formId],
 		searchInput : bxBMent,
-		extranetUser : params["extranetUser"],
+		extranetUser : params.extranetUser,
 		bindMainPopup :  {
 			node : bxBMent,
 			offsetTop : '1px',
@@ -3080,7 +3144,9 @@ window.MPFMentionInit = function(formId, params)
 		obWindowClass : 'bx-lm-mention',
 		obWindowCloseIcon : false,
 		useClientDatabase: (!!params["useClientDatabase"]),
-		userNameTemplate: (typeof params["userNameTemplate"] != 'undefined' ? params["userNameTemplate"] : '')
+		userNameTemplate: (typeof params["userNameTemplate"] != 'undefined' ? params["userNameTemplate"] : ''),
+		showVacations: false,
+		showSearchInput: BX.browser.IsMobile()
 	});
 
 	BX.ready(function() {

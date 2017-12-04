@@ -378,11 +378,7 @@ if (defined('B_ADMIN_SUBELEMENTS_LIST') && true === B_ADMIN_SUBELEMENTS_LIST)
 						$arCatalogProduct['QUANTITY_TRACE'] = $arFields['CATALOG_QUANTITY_TRACE'];
 					if (isset($arFields['CATALOG_MEASURE']) && is_string($arFields['CATALOG_MEASURE']) && (int)$arFields['CATALOG_MEASURE'] > 0)
 						$arCatalogProduct['MEASURE'] = $arFields['CATALOG_MEASURE'];
-					if ('Y' != $strUseStoreControl)
-					{
-						if (isset($arFields['CATALOG_QUANTITY']) && '' != $arFields['CATALOG_QUANTITY'])
-							$arCatalogProduct['QUANTITY'] = $arFields['CATALOG_QUANTITY'];
-					}
+
 					if ($catalogPurchasInfoEdit)
 					{
 						if (
@@ -394,7 +390,18 @@ if (defined('B_ADMIN_SUBELEMENTS_LIST') && true === B_ADMIN_SUBELEMENTS_LIST)
 							$arCatalogProduct['PURCHASING_CURRENCY'] = $arFields['CATALOG_PURCHASING_CURRENCY'];
 						}
 					}
-					if (!Catalog\ProductTable::isExistProduct($subID))
+
+					if ($strUseStoreControl != 'Y')
+					{
+						if (isset($arFields['CATALOG_QUANTITY']) && '' != $arFields['CATALOG_QUANTITY'])
+							$arCatalogProduct['QUANTITY'] = $arFields['CATALOG_QUANTITY'];
+					}
+
+					$product = Catalog\ProductTable::getList(array(
+						'select' => array('ID', 'SUBSCRIBE_ORIG'),
+						'filter' => array('=ID' => $subID)
+					))->fetch();
+					if (empty($product))
 					{
 						$arCatalogProduct['ID'] = $subID;
 						CCatalogProduct::Add($arCatalogProduct, false);
@@ -402,26 +409,32 @@ if (defined('B_ADMIN_SUBELEMENTS_LIST') && true === B_ADMIN_SUBELEMENTS_LIST)
 					else
 					{
 						if (!empty($arCatalogProduct))
+						{
+							if ($strUseStoreControl != 'Y')
+								$arCatalogProduct['SUBSCRIBE'] = $product['SUBSCRIBE_ORIG'];
 							CCatalogProduct::Update($subID, $arCatalogProduct);
+						}
 					}
-					if (isset($arFields['CATALOG_MEASURE_RATIO']) && '' != trim($arFields['CATALOG_MEASURE_RATIO']))
-					{
-						$intRatioID = 0;
-						$rsRatios = CCatalogMeasureRatio::getList(
-							array(),
-							array('PRODUCT_ID' => $subID),
-							false,
-							false,
-							array('ID', 'PRODUCT_ID')
-						);
-						if ($arRatio = $rsRatios->Fetch())
-							$intRatioID = (int)$arRatio['ID'];
-						unset($arRatio, $rsRatios);
+					unset($product);
 
-						if ($intRatioID > 0)
-							CCatalogMeasureRatio::update($intRatioID, array('RATIO' => trim($arFields['CATALOG_MEASURE_RATIO'])));
-						else
-							CCatalogMeasureRatio::add(array('PRODUCT_ID' => $subID, 'RATIO' => trim($arFields['CATALOG_MEASURE_RATIO'])));
+					if (isset($arFields['CATALOG_MEASURE_RATIO']))
+					{
+						$newValue = trim($arFields['CATALOG_MEASURE_RATIO']);
+						if ($newValue != '')
+						{
+							$intRatioID = 0;
+							$ratio = Catalog\MeasureRatioTable::getList(array(
+								'select' => array('ID', 'PRODUCT_ID'),
+								'filter' => array('=PRODUCT_ID' => $subID, '=IS_DEFAULT' => 'Y'),
+							))->fetch();
+							if (!empty($ratio))
+								$intRatioID = (int)$ratio['ID'];
+							if ($intRatioID > 0)
+								$ratioResult = CCatalogMeasureRatio::update($intRatioID, array('RATIO' => $newValue));
+							else
+								$ratioResult = CCatalogMeasureRatio::add(array('PRODUCT_ID' => $subID, 'RATIO' => $newValue, 'IS_DEFAULT' => 'Y'));
+						}
+						unset($newValue);
 					}
 				}
 			}
@@ -508,6 +521,8 @@ if (defined('B_ADMIN_SUBELEMENTS_LIST') && true === B_ADMIN_SUBELEMENTS_LIST)
 										"QUANTITY_FROM" => $CATALOG_QUANTITY_FROM[$elID][$arCatalogGroup["ID"]],
 										"QUANTITY_TO" => $CATALOG_QUANTITY_TO[$elID][$arCatalogGroup["ID"]],
 									);
+									if (is_string($arFields['PRICE']))
+										$arFields['PRICE'] = str_replace(',', '.', $arFields['PRICE']);
 									if ($arFields["PRICE"] < 0 || trim($arFields["PRICE"]) === '')
 										CPrice::Delete($CATALOG_PRICE_ID[$elID][$arCatalogGroup["ID"]]);
 									elseif ((int)$CATALOG_PRICE_ID[$elID][$arCatalogGroup["ID"]] > 0)
@@ -556,6 +571,8 @@ if (defined('B_ADMIN_SUBELEMENTS_LIST') && true === B_ADMIN_SUBELEMENTS_LIST)
 										"QUANTITY_FROM" => $CATALOG_QUANTITY_FROM[$elID][$arCatalogGroup["ID"]],
 										"QUANTITY_TO" => $CATALOG_QUANTITY_TO[$elID][$arCatalogGroup["ID"]]
 									);
+									if (is_string($arFields['PRICE']))
+										$arFields['PRICE'] = str_replace(',', '.', $arFields['PRICE']);
 									if ($arFields["PRICE"] < 0 || trim($arFields["PRICE"]) === '')
 										CPrice::Delete($CATALOG_PRICE_ID[$elID][$arCatalogGroup["ID"]]);
 									elseif ((int)$CATALOG_PRICE_ID[$elID][$arCatalogGroup["ID"]] > 0)
@@ -959,7 +976,7 @@ if($bCatalog)
 	$arHeader[] = array(
 		"id" => "SUBSCRIPTIONS",
 		"content" => GetMessage("IBLOCK_FIELD_SUBSCRIPTIONS"),
-		"default" => true,
+		"default" => false,
 	);
 }
 
@@ -1698,7 +1715,7 @@ if (!(false == B_ADMIN_SUBELEMENTS_LIST && $bCopy))
 			}
 			if (isset($arSelectedFieldsMap['CATALOG_MEASURE_RATIO']))
 			{
-				$row->arRes['CATALOG_MEASURE_RATIO'] = 1;
+				$row->arRes['CATALOG_MEASURE_RATIO'] = ' ';
 			}
 		}
 
@@ -1800,21 +1817,18 @@ if (!empty($arRows))
 
 	if (isset($arSelectedFieldsMap['CATALOG_MEASURE_RATIO']))
 	{
-		$rsRatios = CCatalogMeasureRatio::getList(
-			array(),
-			array('@PRODUCT_ID' => $arRowKeys),
-			false,
-			false,
-			array('ID', 'PRODUCT_ID', 'RATIO')
-		);
-		while ($arRatio = $rsRatios->Fetch())
+		$iterator = Catalog\MeasureRatioTable::getList(array(
+			'select' => array('ID', 'PRODUCT_ID', 'RATIO'),
+			'filter' => array('@PRODUCT_ID' => $arRowKeys, '=IS_DEFAULT' => 'Y')
+		));
+		while ($row = $iterator->fetch())
 		{
-			$arRatio['PRODUCT_ID'] = (int)$arRatio['PRODUCT_ID'];
-			if (isset($arRows[$arRatio['PRODUCT_ID']]))
-			{
-				$arRows[$arRatio['PRODUCT_ID']]->arRes['CATALOG_MEASURE_RATIO'] = $arRatio['RATIO'];
-			}
+			$id = (int)$row['PRODUCT_ID'];
+			if (isset($arRows[$id]))
+				$arRows[$id]->arRes['CATALOG_MEASURE_RATIO'] = $row['RATIO'];
+			unset($id);
 		}
+		unset($row, $iterator);
 	}
 }
 

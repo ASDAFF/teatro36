@@ -1,0 +1,4 @@
+2017-Dec-03 16:30:48 Наличие необходимых модулей php (check_php_modules): Ok
+Все необходимые модули установлены
+2017-Dec-03 16:30:49 Обязательные параметры PHP (check_php_settings): Fail
+Ошибка! Параметр opcache.revalidate_freq = 2, требуется off

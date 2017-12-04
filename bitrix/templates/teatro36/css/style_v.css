@@ -89,6 +89,20 @@
   font-weight:normal;
 }
 
+#issues li .h1 {
+	width: 370px;
+  color: #e2d4c8;
+  font-size: 28px;
+  text-align: center;
+  font-style:italic;
+  font-family:Cambria;
+  font-weight:normal;
+    -webkit-margin-before: 0.67em;
+    -webkit-margin-after: 0.67em;
+    -webkit-margin-start: 0px;
+    -webkit-margin-end: 0px;
+}
+
 #issues li p {
   font-size: 14px;
   margin: 10px 20px;

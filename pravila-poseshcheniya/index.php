@@ -1,6 +1,6 @@
 <?
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
-$APPLICATION->SetPageProperty("title", "Правила посещения");
+$APPLICATION->SetPageProperty("title", "Правила посещения | Салон «Teatro»");
 $APPLICATION->SetTitle("pravila-poseshcheniya");
 ?>
 
