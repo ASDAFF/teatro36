@@ -2,7 +2,7 @@
     <div class="container">
 
         <!-- /mod_php version 1.0.0.Alpha1-J1.5 (c) www.fijiwebdesign.com -->
-        <div class="copy">© 2014-2017 Салон «Театро».<br />Все права защищены.</div>
+        <div class="copy">© 2014-2018 Салон «Театро».<br />Все права защищены.</div>
 
         <!-- mod_php version 1.0.0.Alpha1-J1.5/ -->
 

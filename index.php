@@ -1,6 +1,6 @@
 <?
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
-$APPLICATION->SetPageProperty("title", "Салон эротического релакса для мужчин в Воронеже | «Teatro»");
+$APPLICATION->SetPageProperty("title", "Эротический массаж для мужчин в Воронеже в салоне «Teatro»");
 $APPLICATION->SetTitle("");
 ?>
 
