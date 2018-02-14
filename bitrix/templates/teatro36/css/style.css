@@ -280,7 +280,7 @@ a.home_l {
 /*footer*/
 
 .footer {
-  height: 170px;
+  height: 450px;
   position: absolute;
   bottom: 0px;
   top: 765px;
@@ -504,10 +504,19 @@ ul.menu li ul li:hover a {
   color: #686868;
 }
 
-.f_contact {
-  float: left;
-  width: 600px;
+.footer .container .f_contact {
+  width: 100%;
   text-align: center;
+}
+.footer .container .f_contact p,
+.footer .container .f_contact li
+{
+  list-style: none;
+  color: #61546a;
+}
+.footer_scroll{
+  height: 190px;
+  padding: 20px;
 }
 .phone_title,
 .soc_title {
@@ -1586,7 +1595,11 @@ h2 {
 .footer .copy,
 .footer .f_contact,
 .footer .razr {
-  width: 33.333%;
+  width: 33.3333%;
+  float: left;
+}
+.social{
+  text-align: center;
 }
 .container {
   width: 992px;

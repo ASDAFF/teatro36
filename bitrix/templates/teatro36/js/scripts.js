@@ -47,6 +47,7 @@ jQuery(document).ready(function($){
   });
 
   $('.scrollbar-inner, .scrollbar-inner1').scrollbar();
+
   $(".jshop .jshop .images_shop").fancybox();
   $('input, textarea').placeholder();
 

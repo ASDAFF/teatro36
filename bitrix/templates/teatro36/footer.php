@@ -1,4 +1,35 @@
 <div class="footer">
+
+    <div class="container">
+
+        <!-- /mod_php version 1.0.0.Alpha1-J1.5 (c) www.fijiwebdesign.com -->
+        <div class="f_contact">
+            <div class="phone_title">Телефон</div>
+            <div class="phone_number"><?= tplvar('phone', true);?></div>
+            <div class="c_line"></div>
+        </div>
+
+        <!-- mod_php version 1.0.0.Alpha1-J1.5/ -->
+
+    </div>
+    <div class="container">
+        <div class="f_contact">
+            <div class="scrollbar-inner">
+                <div class="footer_scroll">
+                    <div class="moduletable">
+                        <?
+                        $APPLICATION->IncludeFile("/include/about_salon.php", Array(), Array(
+                            "MODE"      => "html",                                           // будет редактировать в веб-редакторе
+                            "NAME"      => "Редактирование включаемой области раздела",      // текст всплывающей подсказки на иконке
+                            "TEMPLATE"  => ""                    // имя шаблона для нового файла
+                        ));
+                        ?>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
     <div class="container">
 
         <!-- /mod_php version 1.0.0.Alpha1-J1.5 (c) www.fijiwebdesign.com -->
@@ -6,33 +37,25 @@
 
         <!-- mod_php version 1.0.0.Alpha1-J1.5/ -->
 
-
-        <!-- /mod_php version 1.0.0.Alpha1-J1.5 (c) www.fijiwebdesign.com -->
-        <div class="f_contact">
-            <div class="phone_title">Телефон</div>
-            <div class="phone_number"><?= tplvar('phone', true);?></div>
-            <div class="c_line"></div>
+        <div class="copy social">
             <div class="soc_title">Мы в социальных сетях:</div>
             <div class="soc_icons">
                 <ul>
-<noindex>
-                    <a href="https://instagram.com/voronezh_teatro" target="_blank" rel="nofollow"><li class="ig"></li></a>
-                    <a href="https://www.facebook.com/groups/413913352119850/" target="_blank" rel="nofollow"><li class="fb"></li></a>
-                    <a href="https://vk.com/club74904583" target="_blank" rel="nofollow"><li class="vk"></li></a>
-                    <a href="http://www.ok.ru/group/53453351158012" target="_blank" rel="nofollow"><li class="od"></li></a>
-                    <a href="http://twitter.com/teatro36vrn" target="_blank" rel="nofollow"><li class="tw"></li></a>
-					</noindex>
+                    <noindex>
+                        <a href="https://instagram.com/voronezh_teatro" target="_blank" rel="nofollow"><li class="ig"></li></a>
+                        <a href="https://www.facebook.com/groups/413913352119850/" target="_blank" rel="nofollow"><li class="fb"></li></a>
+                        <a href="https://vk.com/club74904583" target="_blank" rel="nofollow"><li class="vk"></li></a>
+                        <a href="http://www.ok.ru/group/53453351158012" target="_blank" rel="nofollow"><li class="od"></li></a>
+                        <a href="http://twitter.com/teatro36vrn" target="_blank" rel="nofollow"><li class="tw"></li></a>
+                    </noindex>
                 </ul>
 
             </div>
-
         </div>
-
-        <!-- mod_php version 1.0.0.Alpha1-J1.5/ -->
 
 
         <!-- /mod_php version 1.0.0.Alpha1-J1.5 (c) www.fijiwebdesign.com -->
-<noindex>
+        <noindex>
         <div class="razr">Разработка сайта:<br />компания <a href="http://stebnev-studio.ru/" target="_blank" rel="nofollow">Stebnev-Studio</a></div>
 		</noindex>
         <!-- mod_php version 1.0.0.Alpha1-J1.5/ -->
