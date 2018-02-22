@@ -1,19 +1,18 @@
 <div class="footer">
 
     <div class="container">
-
         <!-- /mod_php version 1.0.0.Alpha1-J1.5 (c) www.fijiwebdesign.com -->
         <div class="f_contact">
             <div class="phone_title">Телефон</div>
             <div class="phone_number"><?= tplvar('phone', true);?></div>
             <div class="c_line"></div>
         </div>
-
         <!-- mod_php version 1.0.0.Alpha1-J1.5/ -->
-
     </div>
+
+    <? if(CSite::InDir('/index.php')): ?>
     <div class="container">
-        <div class="f_contact">
+        <div class="f_contact" id="about_salon">
             <div class="scrollbar-inner">
                 <div class="footer_scroll">
                     <div class="moduletable">
@@ -30,8 +29,10 @@
             </div>
         </div>
     </div>
-    <div class="container">
+    <? endif; ?>
 
+
+    <div class="container">
         <!-- /mod_php version 1.0.0.Alpha1-J1.5 (c) www.fijiwebdesign.com -->
         <div class="copy">© 2014-2018 Салон «Театро».<br />Все права защищены.</div>
 
