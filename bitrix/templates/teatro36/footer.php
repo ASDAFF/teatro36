@@ -1,4 +1,4 @@
-<div class="footer">
+<div class="footer" <? if(!CSite::InDir('/index.php')): ?>style="height: 200px" <?endif;?>>
 
     <div class="container">
         <!-- /mod_php version 1.0.0.Alpha1-J1.5 (c) www.fijiwebdesign.com -->
