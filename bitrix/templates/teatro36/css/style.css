@@ -2466,6 +2466,19 @@ a.popup-no {
     background: no-repeat top center/auto 100%;
     
   }
+
+  .contact-header{
+    position: fixed;
+    bottom: 0;
+    top: auto;
+    z-index: 100;
+    width: 100%;
+    right: auto;
+    left: auto;
+    text-align: center;
+    color: #a7a6a6;
+  }
+
 }
 
 @media only screen and (max-width: 360px) {
