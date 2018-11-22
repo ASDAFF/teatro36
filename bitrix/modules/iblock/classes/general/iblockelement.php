@@ -2753,7 +2753,6 @@ class CAllIBlockElement
 					if(!array_key_exists($by, $arSqlOrder))
 						$arSqlOrder[$by] = CIBlock::_Order("BE.ID", $order, "desc");
 				}
-				var_dump($arSqlOrder);
 
 				//Check if have to add select field in order to correctly sort
 				if(is_array($arSqlOrder[$by]))
