@@ -3,6 +3,7 @@
 <head>
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
 
+
     <link rel="icon" href="/favicon.ico">
 
 
@@ -11,6 +12,7 @@
     <?$APPLICATION->ShowHead();?>
 
     <meta charset="utf-8">
+    <meta name="yandex-verification" content="6356020480983901" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <link href="<?=SITE_TEMPLATE_PATH?>/css/nanoscroller.css" rel="stylesheet">

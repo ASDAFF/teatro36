@@ -160,7 +160,7 @@ ul.left-menu li li
 
 ul.left-menu li
 {
-	behavior:expression( !this.before ? this.before = this.innerHTML = '<span class="dash">&mdash;&nbsp;</span>' + this.innerHTML :'' );
+	behavior:expression( !this.before ? this.before = this.innerHTML = '<span class="dash">— </span>' + this.innerHTML :'' );
 	text-indent:-1.35em;
 	background: none;
 	padding:0;

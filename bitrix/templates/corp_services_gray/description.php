@@ -1,6 +1,8 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
 <?
-$arTemplate = Array(
-	"NAME"=>GetMessage("CSST_TEMPLATE_NAME"), 
-	"DESCRIPTION"=>GetMessage("CSST_TEMPLATE_DESC"), 
-);?>
+$arTemplate = array (
+  'NAME' => 'Широкий',
+  'DESCRIPTION' => 'Легкий и светлый шаблон без фиксации по ширине.',
+  'SORT' => '',
+  'TYPE' => '',
+);
+?>

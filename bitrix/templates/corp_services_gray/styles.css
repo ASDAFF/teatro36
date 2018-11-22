@@ -39,7 +39,7 @@ hr, .hr
 #workarea ul li:before { content:'\2014\a0'; }
 #workarea li
 {
-	behavior:expression( !this.before  ? this.before = this.innerHTML = '<span class="dash">&mdash;&nbsp;</span>' + this.innerHTML :'' );
+	behavior:expression( !this.before  ? this.before = this.innerHTML = '<span class="dash">— </span>' + this.innerHTML :'' );
 	text-indent:-1.35em;
 	margin: 0.6em 0
 }

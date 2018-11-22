@@ -6,6 +6,8 @@ IncludeTemplateLangFile(__FILE__);
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ru" lang="ru">
 <head>
 	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="yandex-verification" content="6356020480983901" />
+
 	<title><?$APPLICATION->ShowTitle()?></title>
 	<link rel="shortcut icon" type="image/x-icon" href="<?=SITE_TEMPLATE_PATH?>/favicon.ico" />
 	
