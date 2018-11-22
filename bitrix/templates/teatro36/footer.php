@@ -1,5 +1,34 @@
 <div class="footer" <? if(!CSite::InDir('/index.php')): ?>style="height: 200px" <?endif;?>>
 
+    <? if(CSite::InDir('/index.php')): ?>
+
+        <div class="container">
+            <?$APPLICATION->IncludeComponent("bitrix:news.line", ".home.rand.actress", Array(
+                "ACTIVE_DATE_FORMAT" => "d.m.Y",
+                "CACHE_GROUPS" => "Y",
+                "CACHE_TIME" => "300",
+                "CACHE_TYPE" => "N",
+                "DETAIL_URL" => "",
+                "FIELD_CODE" => array(
+                    0 => "",
+                    1 => "PREVIEW_PICTURE",
+                ),
+                "IBLOCKS" => array(
+                    0 => "3",
+                ),
+                "IBLOCK_TYPE" => "services",
+                "NEWS_COUNT" => "3",
+                "SORT_BY1" => "RAND",
+                "SORT_BY2" => "SORT",
+                "SORT_ORDER1" => "ASC",
+                "SORT_ORDER2" => "DESC",
+            ),
+                false
+            );?>
+        </div>
+
+    <? endif; ?>
+
     <div class="container">
         <!-- /mod_php version 1.0.0.Alpha1-J1.5 (c) www.fijiwebdesign.com -->
         <div class="f_contact">
@@ -12,9 +41,9 @@
 
     <? if(CSite::InDir('/index.php')): ?>
     <div class="container">
-        <div class="f_contact" id="about_salon">
+        <div class="f_contact">
             <div class="scrollbar-inner">
-                <div class="footer_scroll">
+                <div class="">
                     <div class="moduletable">
                         <?
                         $APPLICATION->IncludeFile("/include/about_salon.php", Array(), Array(

@@ -27,8 +27,23 @@
     <link rel="stylesheet" type="text/css" href="<?=SITE_TEMPLATE_PATH?>/css/style.css">
     <script type="text/javascript" src="<?=SITE_TEMPLATE_PATH?>/js/jquery-1.9.1.js"></script>
 
+    <script src="//yastatic.net/taxi-widget/ya-taxi-widget.js"></script>
+
+
 </head>
 <body class="<? if(CSite::InDir('/index.php')): ?>main<? else: ?>in<? endif; ?>">
+
+<div class="contact-header">
+    <ul>
+        <li><?= tplvar('phone_header', true);?></li>
+        <li><?= tplvar('address_header', true);?></li>
+        <li><?= tplvar('field_header', true);?></li>
+    </ul>
+    <div class="cause-taxi">
+        <div class="ya-taxi-widget" data-use-location="true" data-size="xs" data-theme="dark" data-title="Вызвать такси" data-point-a="" data-point-b="39.213555,51.671433" data-ref="http%3A%2F%2Fteatro36.ru" data-proxy-url="https://3.redirect.appmetrica.yandex.com/route?start-lat={start-lat}&amp;start-lon={start-lon}&amp;end-lat={end-lat}&amp;end-lon={end-lon}&amp;ref={ref}&amp;appmetrica_tracking_id=1178268795219780156"></div>
+    </div>
+</div>
+
 <style>
     #panel {
         position: fixed;

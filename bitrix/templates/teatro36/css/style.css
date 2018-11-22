@@ -431,7 +431,8 @@ body .prw .dev {} body .prw .int {} .dev {
 }
 /**/
 
-.clr {
+.clr,
+.clear{
   clear: both;
 }
 .clr2 {
@@ -1736,6 +1737,40 @@ a.popup-no {
   height:35px; width:130px;
   float:right;
   margin-top:30px;
+}
+
+.contact-header{
+  position: absolute;
+  right: 40px;
+  top: 40px;
+  color: #7a7a7a;
+  font-size: 14px;
+  font-family: "Philosopher";
+  line-height: 1.5;
+  background-color: #0000004a;
+  padding: 10px;
+  border-radius: 10px;
+  width: 180px;
+}
+.contact-header ul{margin-bottom: 15px;}
+.contact-header ul li{
+  list-style: none;
+}
+
+.height-6x{height: 600px;}
+.height-7x{height: 700px;}
+
+.actress-link{
+  text-align: center;
+  margin: 30px auto;
+}
+
+.actress-link a{
+  color: #e2d4c8;
+  font-size: 28px;
+  font-family: VivaldiD CL;
+  text-decoration: none;
+  border: 0;
 }
 
 @media only screen and (min-width: 993px) {
